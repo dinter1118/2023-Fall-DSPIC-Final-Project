@@ -1,0 +1,1073 @@
+
+                           Design Compiler Graphical 
+                                 DC Ultra (TM)
+                                  DFTMAX (TM)
+                              Power Compiler (TM)
+                                 DesignWare (R)
+                                 DC Expert (TM)
+                               Design Vision (TM)
+                               HDL Compiler (TM)
+                               VHDL Compiler (TM)
+                                  DFT Compiler
+                               Design Compiler(R)
+
+               Version R-2020.09-SP5 for linux64 - Apr 23, 2021 
+
+                    Copyright (c) 1988 - 2021 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+   or distribution of this software is strictly prohibited.  Licensed Products
+     communicate with Synopsys servers for the purpose of providing software
+    updates, detecting software piracy and verifying that customers are using
+    Licensed Products in conformity with the applicable License Key for such
+  Licensed Products. Synopsys will use information gathered in connection with
+    this process to deliver software updates and pursue software pirates and
+                                   infringers.
+
+ Inclusivity & Diversity - Visit SolvNetPlus to read the "Synopsys Statement on
+            Inclusivity and Diversity" (Refer to article 000036315 at
+                        https://solvnetplus.synopsys.com)
+Initializing...
+set ref_cycle  4.58
+4.58
+#set ref_cycle  0.66 4.58 5.16
+#set CLK_HALF_PERIODS [expr $ref_cycle/2.0];
+#set hdlin_enable_vpp true;  
+#set hdlin_check_no_latch true; 
+#set synlib_dwgen_fmlink_active true;
+set DESIGN	"FIR" 
+FIR
+#/*--------------------------------------------------------------*/
+#/*----------------------- 1.Read files -------------------------*/
+#/*--------------------------------------------------------------*/
+analyze -f verilog ../$DESIGN\.v
+Running PRESTO HDLC
+Compiling source file ../FIR.v
+Presto compilation completed successfully.
+Loading db file '/home/m110/m110061576/process/CBDK_TSMC90GUTM_Arm_f1.0/orig_lib/aci/sc-x/synopsys/slow.db'
+Loading db file '/home/m110/m110061576/process/CBDK_TSMC90GUTM_Arm_f1.0/orig_lib/aci/sc-x/synopsys/fast.db'
+Loading db file '/home/m110/m110061576/process/CBDK_TSMC90GUTM_Arm_f1.0/orig_lib/aci/sc-x/synopsys/typical.db'
+Loading db file '/usr/cad/synopsys/synthesis/cur/libraries/syn/dw_foundation.sldb'
+1
+elaborate $DESIGN
+Loading db file '/usr/cad/synopsys/synthesis/cur/libraries/syn/gtech.db'
+Loading db file '/usr/cad/synopsys/synthesis/cur/libraries/syn/standard.sldb'
+  Loading link library 'slow'
+  Loading link library 'fast'
+  Loading link library 'typical'
+  Loading link library 'gtech'
+Running PRESTO HDLC
+
+Inferred memory devices in process
+	in routine FIR line 91 in file
+		'../FIR.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|     outfix_reg      | Flip-flop |  23   |  Y  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine FIR line 98 in file
+		'../FIR.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|       mul_reg       | Flip-flop |  690  |  Y  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine FIR line 137 in file
+		'../FIR.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|       add_reg       | Flip-flop |  713  |  Y  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully. (FIR)
+Elaborated 1 design.
+Current design is now 'FIR'.
+1
+current_design $DESIGN
+Current design is 'FIR'.
+{FIR}
+# Top module name
+set_operating_conditions slow
+Using operating conditions 'slow' found in library 'slow'.
+1
+#/*--------------------------------------------------------------*/
+#/*--------------- 2. Set design constraints --------------------*/ 
+#/*--------------------------------------------------------------*/
+#insert_clock_gating -global
+#rewire_clock_gating   -balance_fanout
+create_clock -period $ref_cycle [get_ports clk]
+1
+set_input_delay [expr $ref_cycle*0.05] -clock clk [all_inputs]
+1
+set_output_delay [expr $ref_cycle*0.05] -clock clk [all_outputs]
+1
+#set_clock_uncertainty -setup 0.3 clk
+#set_clock_uncertainty -hold 0.1 clk
+#propagate_constraints -gate_clock
+#create_clock -name "clk" [get_ports clk] -period $ref_cycle -waveform {0 CLK_HALF_PERIODS}
+#set_clock_uncertainty 0.1 [get_clocks {*}];
+set_dont_touch_network [get_clocks clk]
+1
+set_dont_touch_network [get_ports rst]
+1
+#set_ideal_netowrk [get_ports clk]
+set_fix_hold clk
+1
+#set_wire_load_mode top
+set auto_wire_load_selection true
+true
+set_wire_load_mode top
+1
+#set_load 0.05 [all_outputs]
+set_drive 1.5 [all_inputs] 
+1
+set_load [load_of slow/CLKBUFX20/A] [all_outputs]
+1
+# Power Constraints #
+set_max_area 0
+1
+set_leakage_optimization true
+1
+set_dynamic_optimization true
+1
+#/*--------------------------------------------------------------*/
+#/*----------------- 3.Check and Link Design --------------------*/ 
+#/*--------------------------------------------------------------*/
+#link 
+#check_design
+#uniquify
+link 
+
+  Linking design 'FIR'
+  Using the following designs and libraries:
+  --------------------------------------------------------------------------
+  FIR                         /home/m111/m111061642/DSPIC/HW4/Q2/syn/FIR.db
+  slow (library)              /home/m110/m110061576/process/CBDK_TSMC90GUTM_Arm_f1.0/orig_lib/aci/sc-x/synopsys/slow.db
+  fast (library)              /home/m110/m110061576/process/CBDK_TSMC90GUTM_Arm_f1.0/orig_lib/aci/sc-x/synopsys/fast.db
+  typical (library)           /home/m110/m110061576/process/CBDK_TSMC90GUTM_Arm_f1.0/orig_lib/aci/sc-x/synopsys/typical.db
+  dw_foundation.sldb (library) /usr/cad/synopsys/synthesis/cur/libraries/syn/dw_foundation.sldb
+
+1
+check_design
+ 
+****************************************
+check_design summary:
+Version:     R-2020.09-SP5
+Date:        Thu Jan  4 14:34:23 2024
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Cells                                                               2
+    Cells do not drive (LINT-1)                                     2
+--------------------------------------------------------------------------------
+
+Warning: In design 'FIR', cell 'B_2' does not drive any nets. (LINT-1)
+Warning: In design 'FIR', cell 'B_3' does not drive any nets. (LINT-1)
+1
+check_timing
+Information: Checking out the license 'DesignWare'. (SEC-104)
+Information: Updating design information... (UID-85)
+Warning: Design 'FIR' contains 3 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
+
+Information: Checking generated_clocks...
+
+Information: Checking loops...
+
+Information: Checking no_input_delay...
+
+Information: Checking unconstrained_endpoints...
+
+Information: Checking pulse_clock_cell_type...
+
+Information: Checking no_driving_cell...
+
+Information: Checking partial_input_delay...
+1
+update_timing
+Information: Updating design information... (UID-85)
+Warning: Design 'FIR' contains 3 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
+1
+#uniquify
+set_fix_multiple_port_nets -all -buffer_constants  
+1
+#/*--------------------------------------------------------------*/
+#/*------------------------ 4.Compile ---------------------------*/ 
+#/*--------------------------------------------------------------*/
+set compile_new_boolean_structure true
+Information: Variable 'compile_new_boolean_structure' is obsolete and is being ignored. (INFO-100)
+true
+set compile_sequential_area_recovery true
+Information: Variable 'compile_sequential_area_recovery' is obsolete and is being ignored. (INFO-100)
+true
+set_structure -boolean true -boolean_effort high
+1
+#compile  -map_effort medium 
+compile_ultra
+Information: Performing power optimization. (PWR-850)
+Alib files are up-to-date.
+Information: Evaluating DesignWare library utilization. (UISN-27)
+
+============================================================================
+| DesignWare Building Block Library  |         Version         | Available |
+============================================================================
+| Basic DW Building Blocks           | R-2020.09-DWBB_202009.5 |     *     |
+| Licensed DW Building Blocks        | R-2020.09-DWBB_202009.5 |     *     |
+============================================================================
+
+Information: Sequential output inversion is enabled.  SVF file must be used for formal verification. (OPT-1208)
+
+Information: There are 2 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
+
+  Simplifying Design 'FIR'
+
+  Loading target library 'fast'
+  Loading target library 'typical'
+Loaded alib file './alib-52/slow.db.alib'
+Loaded alib file './alib-52/fast.db.alib'
+Loaded alib file './alib-52/typical.db.alib'
+Warning: Operating condition slow set on design FIR has different process,
+voltage and temperatures parameters than the parameters at which target library 
+fast is characterized. Delays may be inaccurate as a result. (OPT-998)
+  Building model 'DW01_NAND2'
+Information: Ungrouping 0 of 1 hierarchies before Pass 1 (OPT-775)
+Information: State dependent leakage is now switched from on to off.
+
+  Beginning Pass 1 Mapping
+  ------------------------
+  Processing 'FIR'
+Information: The register 'mul_reg[30][0]' is a constant and will be removed. (OPT-1206)
+Information: The register 'mul_reg[26][0]' is a constant and will be removed. (OPT-1206)
+Information: The register 'mul_reg[26][1]' is a constant and will be removed. (OPT-1206)
+Information: The register 'mul_reg[5][0]' is a constant and will be removed. (OPT-1206)
+Information: The register 'mul_reg[5][1]' is a constant and will be removed. (OPT-1206)
+Information: The register 'mul_reg[1][0]' is a constant and will be removed. (OPT-1206)
+Information: In design 'FIR', the register 'mul_reg[31][11]' is removed because it is merged to 'mul_reg[0][22]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[31][12]' is removed because it is merged to 'mul_reg[0][22]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[31][13]' is removed because it is merged to 'mul_reg[0][22]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[31][14]' is removed because it is merged to 'mul_reg[0][22]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[31][15]' is removed because it is merged to 'mul_reg[0][22]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[31][16]' is removed because it is merged to 'mul_reg[0][22]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[31][17]' is removed because it is merged to 'mul_reg[0][22]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[31][18]' is removed because it is merged to 'mul_reg[0][22]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[31][19]' is removed because it is merged to 'mul_reg[0][22]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[31][20]' is removed because it is merged to 'mul_reg[0][22]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[31][21]' is removed because it is merged to 'mul_reg[0][22]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[31][22]' is removed because it is merged to 'mul_reg[0][22]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[30][11]' is removed because it is merged to 'mul_reg[0][22]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[30][12]' is removed because it is merged to 'mul_reg[0][22]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[30][13]' is removed because it is merged to 'mul_reg[0][22]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[30][14]' is removed because it is merged to 'mul_reg[0][22]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[30][15]' is removed because it is merged to 'mul_reg[0][22]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[30][16]' is removed because it is merged to 'mul_reg[0][22]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[30][17]' is removed because it is merged to 'mul_reg[0][22]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[30][18]' is removed because it is merged to 'mul_reg[0][22]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[30][19]' is removed because it is merged to 'mul_reg[0][22]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[30][20]' is removed because it is merged to 'mul_reg[0][22]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[30][21]' is removed because it is merged to 'mul_reg[0][22]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[30][22]' is removed because it is merged to 'mul_reg[0][22]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[26][12]' is removed because it is merged to 'mul_reg[0][22]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[26][13]' is removed because it is merged to 'mul_reg[0][22]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[26][14]' is removed because it is merged to 'mul_reg[0][22]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[26][15]' is removed because it is merged to 'mul_reg[0][22]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[26][16]' is removed because it is merged to 'mul_reg[0][22]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[26][17]' is removed because it is merged to 'mul_reg[0][22]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[26][18]' is removed because it is merged to 'mul_reg[0][22]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[26][19]' is removed because it is merged to 'mul_reg[0][22]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[26][20]' is removed because it is merged to 'mul_reg[0][22]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[26][21]' is removed because it is merged to 'mul_reg[0][22]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[26][22]' is removed because it is merged to 'mul_reg[0][22]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[5][12]' is removed because it is merged to 'mul_reg[0][22]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[5][13]' is removed because it is merged to 'mul_reg[0][22]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[5][14]' is removed because it is merged to 'mul_reg[0][22]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[5][15]' is removed because it is merged to 'mul_reg[0][22]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[5][16]' is removed because it is merged to 'mul_reg[0][22]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[5][17]' is removed because it is merged to 'mul_reg[0][22]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[5][18]' is removed because it is merged to 'mul_reg[0][22]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[5][19]' is removed because it is merged to 'mul_reg[0][22]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[5][20]' is removed because it is merged to 'mul_reg[0][22]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[5][21]' is removed because it is merged to 'mul_reg[0][22]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[5][22]' is removed because it is merged to 'mul_reg[0][22]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[1][11]' is removed because it is merged to 'mul_reg[0][22]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[1][12]' is removed because it is merged to 'mul_reg[0][22]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[1][13]' is removed because it is merged to 'mul_reg[0][22]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[1][14]' is removed because it is merged to 'mul_reg[0][22]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[1][15]' is removed because it is merged to 'mul_reg[0][22]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[1][16]' is removed because it is merged to 'mul_reg[0][22]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[1][17]' is removed because it is merged to 'mul_reg[0][22]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[1][18]' is removed because it is merged to 'mul_reg[0][22]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[1][19]' is removed because it is merged to 'mul_reg[0][22]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[1][20]' is removed because it is merged to 'mul_reg[0][22]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[1][21]' is removed because it is merged to 'mul_reg[0][22]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[1][22]' is removed because it is merged to 'mul_reg[0][22]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[0][10]' is removed because it is merged to 'mul_reg[0][22]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[0][11]' is removed because it is merged to 'mul_reg[0][22]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[0][12]' is removed because it is merged to 'mul_reg[0][22]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[0][13]' is removed because it is merged to 'mul_reg[0][22]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[0][14]' is removed because it is merged to 'mul_reg[0][22]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[0][15]' is removed because it is merged to 'mul_reg[0][22]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[0][16]' is removed because it is merged to 'mul_reg[0][22]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[0][17]' is removed because it is merged to 'mul_reg[0][22]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[0][18]' is removed because it is merged to 'mul_reg[0][22]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[0][19]' is removed because it is merged to 'mul_reg[0][22]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[0][20]' is removed because it is merged to 'mul_reg[0][22]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[0][21]' is removed because it is merged to 'mul_reg[0][22]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[31][10]' is removed because it is merged to 'mul_reg[0][22]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[26][11]' is removed because it is merged to 'mul_reg[30][10]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[5][11]' is removed because it is merged to 'mul_reg[30][10]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[1][10]' is removed because it is merged to 'mul_reg[30][10]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[0][9]' is removed because it is merged to 'mul_reg[30][10]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[31][9]' is removed because it is merged to 'mul_reg[30][10]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[26][10]' is removed because it is merged to 'mul_reg[30][9]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[5][10]' is removed because it is merged to 'mul_reg[30][9]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[1][9]' is removed because it is merged to 'mul_reg[30][9]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[0][8]' is removed because it is merged to 'mul_reg[30][9]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[31][8]' is removed because it is merged to 'mul_reg[30][9]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[26][9]' is removed because it is merged to 'mul_reg[30][8]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[5][9]' is removed because it is merged to 'mul_reg[30][8]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[1][8]' is removed because it is merged to 'mul_reg[30][8]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[0][7]' is removed because it is merged to 'mul_reg[30][8]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[31][7]' is removed because it is merged to 'mul_reg[30][8]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[26][8]' is removed because it is merged to 'mul_reg[30][7]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[5][8]' is removed because it is merged to 'mul_reg[30][7]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[1][7]' is removed because it is merged to 'mul_reg[30][7]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[0][6]' is removed because it is merged to 'mul_reg[30][7]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[31][6]' is removed because it is merged to 'mul_reg[30][7]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[26][7]' is removed because it is merged to 'mul_reg[30][6]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[5][7]' is removed because it is merged to 'mul_reg[30][6]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[1][6]' is removed because it is merged to 'mul_reg[30][6]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[0][5]' is removed because it is merged to 'mul_reg[30][6]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[31][5]' is removed because it is merged to 'mul_reg[30][6]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[26][6]' is removed because it is merged to 'mul_reg[30][5]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[5][6]' is removed because it is merged to 'mul_reg[30][5]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[1][5]' is removed because it is merged to 'mul_reg[30][5]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[0][4]' is removed because it is merged to 'mul_reg[30][5]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[31][4]' is removed because it is merged to 'mul_reg[30][5]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[26][5]' is removed because it is merged to 'mul_reg[30][4]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[5][5]' is removed because it is merged to 'mul_reg[30][4]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[1][4]' is removed because it is merged to 'mul_reg[30][4]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[0][3]' is removed because it is merged to 'mul_reg[30][4]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[31][3]' is removed because it is merged to 'mul_reg[30][4]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[26][4]' is removed because it is merged to 'mul_reg[30][3]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[5][4]' is removed because it is merged to 'mul_reg[30][3]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[1][3]' is removed because it is merged to 'mul_reg[30][3]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[0][2]' is removed because it is merged to 'mul_reg[30][3]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[31][2]' is removed because it is merged to 'mul_reg[30][3]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[26][3]' is removed because it is merged to 'mul_reg[30][2]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[5][3]' is removed because it is merged to 'mul_reg[30][2]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[1][2]' is removed because it is merged to 'mul_reg[30][2]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[0][1]' is removed because it is merged to 'mul_reg[30][2]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[31][1]' is removed because it is merged to 'mul_reg[30][2]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[26][2]' is removed because it is merged to 'mul_reg[30][1]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[5][2]' is removed because it is merged to 'mul_reg[30][1]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[1][1]' is removed because it is merged to 'mul_reg[30][1]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[0][0]' is removed because it is merged to 'mul_reg[30][1]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[31][0]' is removed because it is merged to 'mul_reg[30][1]'. (OPT-1215)
+ Implement Synthetic for 'FIR'.
+Information: Added key list 'DesignWare' to design 'FIR'. (DDB-72)
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+Information: The register 'mul_reg[23][0]' is a constant and will be removed. (OPT-1206)
+Information: The register 'mul_reg[21][0]' is a constant and will be removed. (OPT-1206)
+Information: The register 'mul_reg[21][1]' is a constant and will be removed. (OPT-1206)
+Information: The register 'mul_reg[20][0]' is a constant and will be removed. (OPT-1206)
+Information: The register 'mul_reg[19][0]' is a constant and will be removed. (OPT-1206)
+Information: The register 'mul_reg[12][0]' is a constant and will be removed. (OPT-1206)
+Information: The register 'mul_reg[11][0]' is a constant and will be removed. (OPT-1206)
+Information: The register 'mul_reg[10][0]' is a constant and will be removed. (OPT-1206)
+Information: The register 'mul_reg[10][1]' is a constant and will be removed. (OPT-1206)
+Information: The register 'mul_reg[8][0]' is a constant and will be removed. (OPT-1206)
+Information: In design 'FIR', the register 'mul_reg[25][0]' is removed because it is merged to 'mul_reg[30][1]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[22][0]' is removed because it is merged to 'mul_reg[30][1]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[21][2]' is removed because it is merged to 'mul_reg[30][1]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[20][1]' is removed because it is merged to 'mul_reg[30][1]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[11][1]' is removed because it is merged to 'mul_reg[30][1]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[10][2]' is removed because it is merged to 'mul_reg[30][1]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[9][0]' is removed because it is merged to 'mul_reg[30][1]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[6][0]' is removed because it is merged to 'mul_reg[30][1]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[22][1]' is removed because it is merged to 'mul_reg[30][2]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[9][1]' is removed because it is merged to 'mul_reg[30][2]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[2][0]' is removed because it is merged to 'mul_reg[29][0]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[2][1]' is removed because it is merged to 'mul_reg[29][1]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[2][2]' is removed because it is merged to 'mul_reg[29][2]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[2][3]' is removed because it is merged to 'mul_reg[29][3]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[2][4]' is removed because it is merged to 'mul_reg[29][4]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[2][5]' is removed because it is merged to 'mul_reg[29][5]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[2][6]' is removed because it is merged to 'mul_reg[29][6]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[2][7]' is removed because it is merged to 'mul_reg[29][7]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[2][8]' is removed because it is merged to 'mul_reg[29][8]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[2][9]' is removed because it is merged to 'mul_reg[29][9]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[2][10]' is removed because it is merged to 'mul_reg[29][10]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[29][12]' is removed because it is merged to 'mul_reg[29][11]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[29][13]' is removed because it is merged to 'mul_reg[29][11]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[29][14]' is removed because it is merged to 'mul_reg[29][11]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[29][15]' is removed because it is merged to 'mul_reg[29][11]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[29][16]' is removed because it is merged to 'mul_reg[29][11]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[29][17]' is removed because it is merged to 'mul_reg[29][11]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[29][18]' is removed because it is merged to 'mul_reg[29][11]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[29][19]' is removed because it is merged to 'mul_reg[29][11]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[29][20]' is removed because it is merged to 'mul_reg[29][11]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[29][21]' is removed because it is merged to 'mul_reg[29][11]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[29][22]' is removed because it is merged to 'mul_reg[29][11]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[2][11]' is removed because it is merged to 'mul_reg[29][11]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[2][12]' is removed because it is merged to 'mul_reg[29][11]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[2][13]' is removed because it is merged to 'mul_reg[29][11]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[2][14]' is removed because it is merged to 'mul_reg[29][11]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[2][15]' is removed because it is merged to 'mul_reg[29][11]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[2][16]' is removed because it is merged to 'mul_reg[29][11]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[2][17]' is removed because it is merged to 'mul_reg[29][11]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[2][18]' is removed because it is merged to 'mul_reg[29][11]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[2][19]' is removed because it is merged to 'mul_reg[29][11]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[2][20]' is removed because it is merged to 'mul_reg[29][11]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[2][21]' is removed because it is merged to 'mul_reg[29][11]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[2][22]' is removed because it is merged to 'mul_reg[29][11]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[3][0]' is removed because it is merged to 'mul_reg[28][0]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[3][1]' is removed because it is merged to 'mul_reg[28][1]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[3][2]' is removed because it is merged to 'mul_reg[28][2]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[3][3]' is removed because it is merged to 'mul_reg[28][3]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[3][4]' is removed because it is merged to 'mul_reg[28][4]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[3][5]' is removed because it is merged to 'mul_reg[28][5]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[3][6]' is removed because it is merged to 'mul_reg[28][6]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[3][7]' is removed because it is merged to 'mul_reg[28][7]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[3][8]' is removed because it is merged to 'mul_reg[28][8]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[3][9]' is removed because it is merged to 'mul_reg[28][9]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[3][10]' is removed because it is merged to 'mul_reg[28][10]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[3][11]' is removed because it is merged to 'mul_reg[28][11]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[3][12]' is removed because it is merged to 'mul_reg[28][12]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[28][14]' is removed because it is merged to 'mul_reg[28][13]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[28][15]' is removed because it is merged to 'mul_reg[28][13]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[28][16]' is removed because it is merged to 'mul_reg[28][13]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[28][17]' is removed because it is merged to 'mul_reg[28][13]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[28][18]' is removed because it is merged to 'mul_reg[28][13]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[28][19]' is removed because it is merged to 'mul_reg[28][13]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[28][20]' is removed because it is merged to 'mul_reg[28][13]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[28][21]' is removed because it is merged to 'mul_reg[28][13]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[28][22]' is removed because it is merged to 'mul_reg[28][13]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[3][13]' is removed because it is merged to 'mul_reg[28][13]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[3][14]' is removed because it is merged to 'mul_reg[28][13]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[3][15]' is removed because it is merged to 'mul_reg[28][13]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[3][16]' is removed because it is merged to 'mul_reg[28][13]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[3][17]' is removed because it is merged to 'mul_reg[28][13]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[3][18]' is removed because it is merged to 'mul_reg[28][13]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[3][19]' is removed because it is merged to 'mul_reg[28][13]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[3][20]' is removed because it is merged to 'mul_reg[28][13]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[3][21]' is removed because it is merged to 'mul_reg[28][13]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[3][22]' is removed because it is merged to 'mul_reg[28][13]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[21][3]' is removed because it is merged to 'mul_reg[25][1]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[20][2]' is removed because it is merged to 'mul_reg[25][1]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[11][2]' is removed because it is merged to 'mul_reg[25][1]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[10][3]' is removed because it is merged to 'mul_reg[25][1]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[6][1]' is removed because it is merged to 'mul_reg[25][1]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[21][4]' is removed because it is merged to 'mul_reg[25][2]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[10][4]' is removed because it is merged to 'mul_reg[25][2]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[6][2]' is removed because it is merged to 'mul_reg[25][2]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[21][5]' is removed because it is merged to 'mul_reg[25][3]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[10][5]' is removed because it is merged to 'mul_reg[25][3]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[6][3]' is removed because it is merged to 'mul_reg[25][3]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[21][6]' is removed because it is merged to 'mul_reg[25][4]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[10][6]' is removed because it is merged to 'mul_reg[25][4]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[6][4]' is removed because it is merged to 'mul_reg[25][4]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[21][7]' is removed because it is merged to 'mul_reg[25][5]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[10][7]' is removed because it is merged to 'mul_reg[25][5]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[6][5]' is removed because it is merged to 'mul_reg[25][5]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[21][8]' is removed because it is merged to 'mul_reg[25][6]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[10][8]' is removed because it is merged to 'mul_reg[25][6]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[6][6]' is removed because it is merged to 'mul_reg[25][6]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[21][9]' is removed because it is merged to 'mul_reg[25][7]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[10][9]' is removed because it is merged to 'mul_reg[25][7]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[6][7]' is removed because it is merged to 'mul_reg[25][7]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[21][10]' is removed because it is merged to 'mul_reg[25][8]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[10][10]' is removed because it is merged to 'mul_reg[25][8]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[6][8]' is removed because it is merged to 'mul_reg[25][8]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[21][11]' is removed because it is merged to 'mul_reg[25][9]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[10][11]' is removed because it is merged to 'mul_reg[25][9]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[6][9]' is removed because it is merged to 'mul_reg[25][9]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[21][12]' is removed because it is merged to 'mul_reg[25][10]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[10][12]' is removed because it is merged to 'mul_reg[25][10]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[6][10]' is removed because it is merged to 'mul_reg[25][10]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[21][13]' is removed because it is merged to 'mul_reg[25][11]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[10][13]' is removed because it is merged to 'mul_reg[25][11]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[6][11]' is removed because it is merged to 'mul_reg[25][11]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[25][13]' is removed because it is merged to 'mul_reg[25][12]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[25][14]' is removed because it is merged to 'mul_reg[25][12]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[25][15]' is removed because it is merged to 'mul_reg[25][12]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[25][16]' is removed because it is merged to 'mul_reg[25][12]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[25][17]' is removed because it is merged to 'mul_reg[25][12]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[25][18]' is removed because it is merged to 'mul_reg[25][12]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[25][19]' is removed because it is merged to 'mul_reg[25][12]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[25][20]' is removed because it is merged to 'mul_reg[25][12]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[25][21]' is removed because it is merged to 'mul_reg[25][12]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[25][22]' is removed because it is merged to 'mul_reg[25][12]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[22][13]' is removed because it is merged to 'mul_reg[25][12]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[22][14]' is removed because it is merged to 'mul_reg[25][12]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[22][15]' is removed because it is merged to 'mul_reg[25][12]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[22][16]' is removed because it is merged to 'mul_reg[25][12]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[22][17]' is removed because it is merged to 'mul_reg[25][12]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[22][18]' is removed because it is merged to 'mul_reg[25][12]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[22][19]' is removed because it is merged to 'mul_reg[25][12]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[22][20]' is removed because it is merged to 'mul_reg[25][12]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[22][21]' is removed because it is merged to 'mul_reg[25][12]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[22][22]' is removed because it is merged to 'mul_reg[25][12]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[21][14]' is removed because it is merged to 'mul_reg[25][12]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[21][15]' is removed because it is merged to 'mul_reg[25][12]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[21][16]' is removed because it is merged to 'mul_reg[25][12]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[21][17]' is removed because it is merged to 'mul_reg[25][12]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[21][18]' is removed because it is merged to 'mul_reg[25][12]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[21][19]' is removed because it is merged to 'mul_reg[25][12]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[21][20]' is removed because it is merged to 'mul_reg[25][12]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[21][21]' is removed because it is merged to 'mul_reg[25][12]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[21][22]' is removed because it is merged to 'mul_reg[25][12]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[10][14]' is removed because it is merged to 'mul_reg[25][12]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[10][15]' is removed because it is merged to 'mul_reg[25][12]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[10][16]' is removed because it is merged to 'mul_reg[25][12]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[10][17]' is removed because it is merged to 'mul_reg[25][12]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[10][18]' is removed because it is merged to 'mul_reg[25][12]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[10][19]' is removed because it is merged to 'mul_reg[25][12]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[10][20]' is removed because it is merged to 'mul_reg[25][12]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[10][21]' is removed because it is merged to 'mul_reg[25][12]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[10][22]' is removed because it is merged to 'mul_reg[25][12]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[9][13]' is removed because it is merged to 'mul_reg[25][12]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[9][14]' is removed because it is merged to 'mul_reg[25][12]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[9][15]' is removed because it is merged to 'mul_reg[25][12]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[9][16]' is removed because it is merged to 'mul_reg[25][12]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[9][17]' is removed because it is merged to 'mul_reg[25][12]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[9][18]' is removed because it is merged to 'mul_reg[25][12]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[9][19]' is removed because it is merged to 'mul_reg[25][12]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[9][20]' is removed because it is merged to 'mul_reg[25][12]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[9][21]' is removed because it is merged to 'mul_reg[25][12]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[9][22]' is removed because it is merged to 'mul_reg[25][12]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[6][12]' is removed because it is merged to 'mul_reg[25][12]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[6][13]' is removed because it is merged to 'mul_reg[25][12]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[6][14]' is removed because it is merged to 'mul_reg[25][12]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[6][15]' is removed because it is merged to 'mul_reg[25][12]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[6][16]' is removed because it is merged to 'mul_reg[25][12]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[6][17]' is removed because it is merged to 'mul_reg[25][12]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[6][18]' is removed because it is merged to 'mul_reg[25][12]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[6][19]' is removed because it is merged to 'mul_reg[25][12]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[6][20]' is removed because it is merged to 'mul_reg[25][12]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[6][21]' is removed because it is merged to 'mul_reg[25][12]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[6][22]' is removed because it is merged to 'mul_reg[25][12]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[0][22]' is removed because it is merged to 'mul_reg[25][12]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[7][0]' is removed because it is merged to 'mul_reg[24][0]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[7][1]' is removed because it is merged to 'mul_reg[24][1]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[7][2]' is removed because it is merged to 'mul_reg[24][2]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[7][3]' is removed because it is merged to 'mul_reg[24][3]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[7][4]' is removed because it is merged to 'mul_reg[24][4]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[7][5]' is removed because it is merged to 'mul_reg[24][5]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[7][6]' is removed because it is merged to 'mul_reg[24][6]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[7][7]' is removed because it is merged to 'mul_reg[24][7]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[7][8]' is removed because it is merged to 'mul_reg[24][8]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[7][9]' is removed because it is merged to 'mul_reg[24][9]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[7][10]' is removed because it is merged to 'mul_reg[24][10]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[7][11]' is removed because it is merged to 'mul_reg[24][11]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[7][12]' is removed because it is merged to 'mul_reg[24][12]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[7][13]' is removed because it is merged to 'mul_reg[24][13]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[24][15]' is removed because it is merged to 'mul_reg[24][14]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[24][16]' is removed because it is merged to 'mul_reg[24][14]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[24][17]' is removed because it is merged to 'mul_reg[24][14]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[24][18]' is removed because it is merged to 'mul_reg[24][14]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[24][19]' is removed because it is merged to 'mul_reg[24][14]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[24][20]' is removed because it is merged to 'mul_reg[24][14]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[24][21]' is removed because it is merged to 'mul_reg[24][14]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[24][22]' is removed because it is merged to 'mul_reg[24][14]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[7][14]' is removed because it is merged to 'mul_reg[24][14]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[7][15]' is removed because it is merged to 'mul_reg[24][14]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[7][16]' is removed because it is merged to 'mul_reg[24][14]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[7][17]' is removed because it is merged to 'mul_reg[24][14]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[7][18]' is removed because it is merged to 'mul_reg[24][14]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[7][19]' is removed because it is merged to 'mul_reg[24][14]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[7][20]' is removed because it is merged to 'mul_reg[24][14]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[7][21]' is removed because it is merged to 'mul_reg[24][14]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[7][22]' is removed because it is merged to 'mul_reg[24][14]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[8][1]' is removed because it is merged to 'mul_reg[23][1]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[8][2]' is removed because it is merged to 'mul_reg[23][2]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[8][3]' is removed because it is merged to 'mul_reg[23][3]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[8][4]' is removed because it is merged to 'mul_reg[23][4]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[8][5]' is removed because it is merged to 'mul_reg[23][5]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[8][6]' is removed because it is merged to 'mul_reg[23][6]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[8][7]' is removed because it is merged to 'mul_reg[23][7]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[8][8]' is removed because it is merged to 'mul_reg[23][8]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[8][9]' is removed because it is merged to 'mul_reg[23][9]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[8][10]' is removed because it is merged to 'mul_reg[23][10]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[8][11]' is removed because it is merged to 'mul_reg[23][11]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[8][12]' is removed because it is merged to 'mul_reg[23][12]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[8][13]' is removed because it is merged to 'mul_reg[23][13]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[23][15]' is removed because it is merged to 'mul_reg[23][14]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[23][16]' is removed because it is merged to 'mul_reg[23][14]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[23][17]' is removed because it is merged to 'mul_reg[23][14]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[23][18]' is removed because it is merged to 'mul_reg[23][14]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[23][19]' is removed because it is merged to 'mul_reg[23][14]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[23][20]' is removed because it is merged to 'mul_reg[23][14]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[23][21]' is removed because it is merged to 'mul_reg[23][14]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[23][22]' is removed because it is merged to 'mul_reg[23][14]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[8][14]' is removed because it is merged to 'mul_reg[23][14]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[8][15]' is removed because it is merged to 'mul_reg[23][14]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[8][16]' is removed because it is merged to 'mul_reg[23][14]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[8][17]' is removed because it is merged to 'mul_reg[23][14]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[8][18]' is removed because it is merged to 'mul_reg[23][14]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[8][19]' is removed because it is merged to 'mul_reg[23][14]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[8][20]' is removed because it is merged to 'mul_reg[23][14]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[8][21]' is removed because it is merged to 'mul_reg[23][14]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[8][22]' is removed because it is merged to 'mul_reg[23][14]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[9][2]' is removed because it is merged to 'mul_reg[22][2]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[9][3]' is removed because it is merged to 'mul_reg[22][3]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[9][4]' is removed because it is merged to 'mul_reg[22][4]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[9][5]' is removed because it is merged to 'mul_reg[22][5]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[9][6]' is removed because it is merged to 'mul_reg[22][6]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[9][7]' is removed because it is merged to 'mul_reg[22][7]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[9][8]' is removed because it is merged to 'mul_reg[22][8]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[9][9]' is removed because it is merged to 'mul_reg[22][9]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[9][10]' is removed because it is merged to 'mul_reg[22][10]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[9][11]' is removed because it is merged to 'mul_reg[22][11]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[9][12]' is removed because it is merged to 'mul_reg[22][12]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[11][3]' is removed because it is merged to 'mul_reg[20][3]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[11][4]' is removed because it is merged to 'mul_reg[20][4]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[11][5]' is removed because it is merged to 'mul_reg[20][5]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[11][6]' is removed because it is merged to 'mul_reg[20][6]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[11][7]' is removed because it is merged to 'mul_reg[20][7]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[11][8]' is removed because it is merged to 'mul_reg[20][8]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[11][9]' is removed because it is merged to 'mul_reg[20][9]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[11][10]' is removed because it is merged to 'mul_reg[20][10]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[11][11]' is removed because it is merged to 'mul_reg[20][11]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[20][13]' is removed because it is merged to 'mul_reg[20][12]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[20][14]' is removed because it is merged to 'mul_reg[20][12]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[20][15]' is removed because it is merged to 'mul_reg[20][12]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[20][16]' is removed because it is merged to 'mul_reg[20][12]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[20][17]' is removed because it is merged to 'mul_reg[20][12]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[20][18]' is removed because it is merged to 'mul_reg[20][12]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[20][19]' is removed because it is merged to 'mul_reg[20][12]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[20][20]' is removed because it is merged to 'mul_reg[20][12]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[20][21]' is removed because it is merged to 'mul_reg[20][12]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[20][22]' is removed because it is merged to 'mul_reg[20][12]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[11][12]' is removed because it is merged to 'mul_reg[20][12]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[11][13]' is removed because it is merged to 'mul_reg[20][12]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[11][14]' is removed because it is merged to 'mul_reg[20][12]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[11][15]' is removed because it is merged to 'mul_reg[20][12]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[11][16]' is removed because it is merged to 'mul_reg[20][12]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[11][17]' is removed because it is merged to 'mul_reg[20][12]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[11][18]' is removed because it is merged to 'mul_reg[20][12]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[11][19]' is removed because it is merged to 'mul_reg[20][12]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[11][20]' is removed because it is merged to 'mul_reg[20][12]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[11][21]' is removed because it is merged to 'mul_reg[20][12]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[11][22]' is removed because it is merged to 'mul_reg[20][12]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[12][1]' is removed because it is merged to 'mul_reg[19][1]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[12][2]' is removed because it is merged to 'mul_reg[19][2]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[12][3]' is removed because it is merged to 'mul_reg[19][3]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[12][4]' is removed because it is merged to 'mul_reg[19][4]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[12][5]' is removed because it is merged to 'mul_reg[19][5]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[12][6]' is removed because it is merged to 'mul_reg[19][6]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[12][7]' is removed because it is merged to 'mul_reg[19][7]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[12][8]' is removed because it is merged to 'mul_reg[19][8]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[12][9]' is removed because it is merged to 'mul_reg[19][9]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[12][10]' is removed because it is merged to 'mul_reg[19][10]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[12][11]' is removed because it is merged to 'mul_reg[19][11]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[12][12]' is removed because it is merged to 'mul_reg[19][12]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[12][13]' is removed because it is merged to 'mul_reg[19][13]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[12][14]' is removed because it is merged to 'mul_reg[19][14]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[12][15]' is removed because it is merged to 'mul_reg[19][15]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[19][17]' is removed because it is merged to 'mul_reg[19][16]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[19][18]' is removed because it is merged to 'mul_reg[19][16]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[19][19]' is removed because it is merged to 'mul_reg[19][16]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[19][20]' is removed because it is merged to 'mul_reg[19][16]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[19][21]' is removed because it is merged to 'mul_reg[19][16]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[19][22]' is removed because it is merged to 'mul_reg[19][16]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[12][16]' is removed because it is merged to 'mul_reg[19][16]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[12][17]' is removed because it is merged to 'mul_reg[19][16]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[12][18]' is removed because it is merged to 'mul_reg[19][16]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[12][19]' is removed because it is merged to 'mul_reg[19][16]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[12][20]' is removed because it is merged to 'mul_reg[19][16]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[12][21]' is removed because it is merged to 'mul_reg[19][16]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[12][22]' is removed because it is merged to 'mul_reg[19][16]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[13][0]' is removed because it is merged to 'mul_reg[18][0]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[13][1]' is removed because it is merged to 'mul_reg[18][1]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[13][2]' is removed because it is merged to 'mul_reg[18][2]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[13][3]' is removed because it is merged to 'mul_reg[18][3]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[13][4]' is removed because it is merged to 'mul_reg[18][4]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[13][5]' is removed because it is merged to 'mul_reg[18][5]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[13][6]' is removed because it is merged to 'mul_reg[18][6]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[13][7]' is removed because it is merged to 'mul_reg[18][7]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[13][8]' is removed because it is merged to 'mul_reg[18][8]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[13][9]' is removed because it is merged to 'mul_reg[18][9]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[13][10]' is removed because it is merged to 'mul_reg[18][10]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[13][11]' is removed because it is merged to 'mul_reg[18][11]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[13][12]' is removed because it is merged to 'mul_reg[18][12]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[13][13]' is removed because it is merged to 'mul_reg[18][13]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[13][14]' is removed because it is merged to 'mul_reg[18][14]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[18][16]' is removed because it is merged to 'mul_reg[18][15]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[18][17]' is removed because it is merged to 'mul_reg[18][15]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[18][18]' is removed because it is merged to 'mul_reg[18][15]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[18][19]' is removed because it is merged to 'mul_reg[18][15]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[18][20]' is removed because it is merged to 'mul_reg[18][15]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[18][21]' is removed because it is merged to 'mul_reg[18][15]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[18][22]' is removed because it is merged to 'mul_reg[18][15]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[13][15]' is removed because it is merged to 'mul_reg[18][15]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[13][16]' is removed because it is merged to 'mul_reg[18][15]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[13][17]' is removed because it is merged to 'mul_reg[18][15]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[13][18]' is removed because it is merged to 'mul_reg[18][15]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[13][19]' is removed because it is merged to 'mul_reg[18][15]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[13][20]' is removed because it is merged to 'mul_reg[18][15]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[13][21]' is removed because it is merged to 'mul_reg[18][15]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[13][22]' is removed because it is merged to 'mul_reg[18][15]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[14][0]' is removed because it is merged to 'mul_reg[17][0]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[14][1]' is removed because it is merged to 'mul_reg[17][1]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[14][2]' is removed because it is merged to 'mul_reg[17][2]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[14][3]' is removed because it is merged to 'mul_reg[17][3]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[14][4]' is removed because it is merged to 'mul_reg[17][4]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[14][5]' is removed because it is merged to 'mul_reg[17][5]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[14][6]' is removed because it is merged to 'mul_reg[17][6]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[14][7]' is removed because it is merged to 'mul_reg[17][7]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[14][8]' is removed because it is merged to 'mul_reg[17][8]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[14][9]' is removed because it is merged to 'mul_reg[17][9]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[14][10]' is removed because it is merged to 'mul_reg[17][10]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[14][11]' is removed because it is merged to 'mul_reg[17][11]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[14][12]' is removed because it is merged to 'mul_reg[17][12]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[14][13]' is removed because it is merged to 'mul_reg[17][13]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[14][14]' is removed because it is merged to 'mul_reg[17][14]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[14][15]' is removed because it is merged to 'mul_reg[17][15]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[14][16]' is removed because it is merged to 'mul_reg[17][16]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[17][18]' is removed because it is merged to 'mul_reg[17][17]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[17][19]' is removed because it is merged to 'mul_reg[17][17]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[17][20]' is removed because it is merged to 'mul_reg[17][17]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[17][21]' is removed because it is merged to 'mul_reg[17][17]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[17][22]' is removed because it is merged to 'mul_reg[17][17]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[14][17]' is removed because it is merged to 'mul_reg[17][17]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[14][18]' is removed because it is merged to 'mul_reg[17][17]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[14][19]' is removed because it is merged to 'mul_reg[17][17]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[14][20]' is removed because it is merged to 'mul_reg[17][17]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[14][21]' is removed because it is merged to 'mul_reg[17][17]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[14][22]' is removed because it is merged to 'mul_reg[17][17]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[15][0]' is removed because it is merged to 'mul_reg[16][0]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[15][1]' is removed because it is merged to 'mul_reg[16][1]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[15][2]' is removed because it is merged to 'mul_reg[16][2]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[15][3]' is removed because it is merged to 'mul_reg[16][3]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[15][4]' is removed because it is merged to 'mul_reg[16][4]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[15][5]' is removed because it is merged to 'mul_reg[16][5]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[15][6]' is removed because it is merged to 'mul_reg[16][6]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[15][7]' is removed because it is merged to 'mul_reg[16][7]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[15][8]' is removed because it is merged to 'mul_reg[16][8]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[15][9]' is removed because it is merged to 'mul_reg[16][9]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[15][10]' is removed because it is merged to 'mul_reg[16][10]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[15][11]' is removed because it is merged to 'mul_reg[16][11]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[15][12]' is removed because it is merged to 'mul_reg[16][12]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[15][13]' is removed because it is merged to 'mul_reg[16][13]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[15][14]' is removed because it is merged to 'mul_reg[16][14]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[15][15]' is removed because it is merged to 'mul_reg[16][15]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[15][16]' is removed because it is merged to 'mul_reg[16][16]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[15][17]' is removed because it is merged to 'mul_reg[16][17]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[16][19]' is removed because it is merged to 'mul_reg[16][18]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[16][20]' is removed because it is merged to 'mul_reg[16][18]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[16][21]' is removed because it is merged to 'mul_reg[16][18]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[16][22]' is removed because it is merged to 'mul_reg[16][18]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[15][18]' is removed because it is merged to 'mul_reg[16][18]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[15][19]' is removed because it is merged to 'mul_reg[16][18]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[15][20]' is removed because it is merged to 'mul_reg[16][18]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[15][21]' is removed because it is merged to 'mul_reg[16][18]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[15][22]' is removed because it is merged to 'mul_reg[16][18]'. (OPT-1215)
+Information: In design 'FIR', the register 'add_reg[30][11]' is removed because it is merged to 'add_reg[30][10]'. (OPT-1215)
+Information: In design 'FIR', the register 'add_reg[30][12]' is removed because it is merged to 'add_reg[30][10]'. (OPT-1215)
+Information: In design 'FIR', the register 'add_reg[30][13]' is removed because it is merged to 'add_reg[30][10]'. (OPT-1215)
+Information: In design 'FIR', the register 'add_reg[30][14]' is removed because it is merged to 'add_reg[30][10]'. (OPT-1215)
+Information: In design 'FIR', the register 'add_reg[30][15]' is removed because it is merged to 'add_reg[30][10]'. (OPT-1215)
+Information: In design 'FIR', the register 'add_reg[30][16]' is removed because it is merged to 'add_reg[30][10]'. (OPT-1215)
+Information: In design 'FIR', the register 'add_reg[30][17]' is removed because it is merged to 'add_reg[30][10]'. (OPT-1215)
+Information: In design 'FIR', the register 'add_reg[30][18]' is removed because it is merged to 'add_reg[30][10]'. (OPT-1215)
+Information: In design 'FIR', the register 'add_reg[30][19]' is removed because it is merged to 'add_reg[30][10]'. (OPT-1215)
+Information: In design 'FIR', the register 'add_reg[30][20]' is removed because it is merged to 'add_reg[30][10]'. (OPT-1215)
+Information: In design 'FIR', the register 'add_reg[30][21]' is removed because it is merged to 'add_reg[30][10]'. (OPT-1215)
+Information: In design 'FIR', the register 'add_reg[30][22]' is removed because it is merged to 'add_reg[30][10]'. (OPT-1215)
+
+  Beginning Mapping Optimizations  (Ultra High effort)
+  -------------------------------
+Information: There is no timing violation in design FIR. Delay-based auto_ungroup will not be performed. (OPT-780)
+
+                                  TOTAL                                                            
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE   MIN DELAY 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER      COST    
+  --------- --------- --------- --------- --------- ------------------------- --------- -----------
+    0:00:08   35038.7      0.00       0.0      27.1                           180225184.0000      0.00  
+    0:00:08   35033.7      0.00       0.0      27.1                           180212288.0000      0.00  
+
+  Beginning Constant Register Removal
+  -----------------------------------
+Information: In design 'FIR', the register 'mul_reg[28][13]' is removed because it is merged to 'mul_reg[29][11]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[24][13]' is removed because it is merged to 'mul_reg[24][14]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[23][13]' is removed because it is merged to 'mul_reg[23][14]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[19][15]' is removed because it is merged to 'mul_reg[19][16]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[18][14]' is removed because it is merged to 'mul_reg[18][15]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[17][16]' is removed because it is merged to 'mul_reg[17][17]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[16][17]' is removed because it is merged to 'mul_reg[16][18]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[28][0]' is removed because it is merged to 'mul_reg[29][0]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[24][1]' is removed because it is merged to 'mul_reg[29][1]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[18][2]' is removed because it is merged to 'mul_reg[29][2]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[23][2]' is removed because it is merged to 'mul_reg[28][1]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[23][3]' is removed because it is merged to 'mul_reg[28][2]'. (OPT-1215)
+Information: In design 'FIR', the register 'add_reg[29][14]' is removed because it is merged to 'add_reg[29][13]'. (OPT-1215)
+Information: In design 'FIR', the register 'add_reg[29][16]' is removed because it is merged to 'add_reg[29][15]'. (OPT-1215)
+Information: In design 'FIR', the register 'add_reg[29][18]' is removed because it is merged to 'add_reg[29][17]'. (OPT-1215)
+Information: In design 'FIR', the register 'add_reg[29][20]' is removed because it is merged to 'add_reg[29][19]'. (OPT-1215)
+Information: In design 'FIR', the register 'add_reg[29][22]' is removed because it is merged to 'add_reg[29][21]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[23][1]' is removed because it is merged to 'mul_reg[24][0]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[18][0]' is removed because it is merged to 'mul_reg[19][1]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[17][1]' is removed because it is merged to 'mul_reg[18][1]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[16][0]' is removed because it is merged to 'mul_reg[17][0]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[16][2]' is removed because it is merged to 'mul_reg[17][2]'. (OPT-1215)
+    0:00:08   34520.1      0.00       0.0      26.3                           177571504.0000      0.00  
+    0:00:08   34520.1      0.00       0.0      26.3                           177571504.0000      0.00  
+
+  Beginning Global Optimizations
+  ------------------------------
+  Numerical Synthesis (Phase 1)
+  Numerical Synthesis (Phase 2)
+  Global Optimization (Phase 1)
+  Global Optimization (Phase 2)
+  Global Optimization (Phase 3)
+  Global Optimization (Phase 4)
+  Global Optimization (Phase 5)
+  Global Optimization (Phase 6)
+  Global Optimization (Phase 7)
+  Global Optimization (Phase 8)
+  Global Optimization (Phase 9)
+  Global Optimization (Phase 10)
+  Global Optimization (Phase 11)
+  Global Optimization (Phase 12)
+  Global Optimization (Phase 13)
+  Global Optimization (Phase 14)
+  Global Optimization (Phase 15)
+  Global Optimization (Phase 16)
+  Global Optimization (Phase 17)
+  Global Optimization (Phase 18)
+  Global Optimization (Phase 19)
+  Global Optimization (Phase 20)
+  Global Optimization (Phase 21)
+  Global Optimization (Phase 22)
+  Global Optimization (Phase 23)
+  Global Optimization (Phase 24)
+  Global Optimization (Phase 25)
+  Global Optimization (Phase 26)
+  Global Optimization (Phase 27)
+  Global Optimization (Phase 28)
+  Global Optimization (Phase 29)
+  Global Optimization (Phase 30)
+
+  Beginning Isolate Ports
+  -----------------------
+
+  Beginning Delay Optimization
+  ----------------------------
+    0:00:09   27534.6      0.12       0.8     298.1                           108471888.0000      0.00  
+    0:00:09   27768.9      0.00       0.0     287.0                           110950944.0000      0.00  
+    0:00:09   27768.9      0.00       0.0     287.0                           110950944.0000      0.00  
+    0:00:09   27768.9      0.00       0.0     287.0                           110950944.0000      0.00  
+    0:00:10   27768.9      0.00       0.0     287.0                           110950944.0000      0.00  
+    0:00:10   27768.9      0.00       0.0     287.0                           110950944.0000      0.00  
+
+  Beginning WLM Backend Optimization
+  --------------------------------------
+Information: In design 'FIR', the register 'mul_reg[28][12]' is removed because it is merged to 'mul_reg[29][11]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[19][16]' is removed because it is merged to 'mul_reg[23][14]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[16][18]' is removed because it is merged to 'mul_reg[17][17]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[24][0]' is removed because it is merged to 'mul_reg[29][0]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[18][1]' is removed because it is merged to 'mul_reg[29][1]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[17][2]' is removed because it is merged to 'mul_reg[29][2]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[19][2]' is removed because it is merged to 'mul_reg[28][1]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[19][3]' is removed because it is merged to 'mul_reg[28][2]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[24][2]' is removed because it is merged to 'mul_reg[25][2]'. (OPT-1215)
+Information: In design 'FIR', the register 'add_reg[29][12]' is removed because it is merged to 'add_reg[29][13]'. (OPT-1215)
+Information: In design 'FIR', the register 'add_reg[29][15]' is removed because it is merged to 'add_reg[29][17]'. (OPT-1215)
+Information: In design 'FIR', the register 'add_reg[29][19]' is removed because it is merged to 'add_reg[29][21]'. (OPT-1215)
+Information: In design 'FIR', the register 'mul_reg[17][0]' is removed because it is merged to 'mul_reg[19][1]'. (OPT-1215)
+    0:00:10   27589.0      0.04       0.2     384.9                           110024888.0000      0.00  
+    0:00:10   27589.0      0.04       0.2     384.9                           110024888.0000      0.00  
+    0:00:10   27589.0      0.04       0.2     384.9                           110024888.0000      0.00  
+    0:00:10   27586.8      0.04       0.2     384.9                           109604160.0000      0.00  
+    0:00:10   27586.8      0.04       0.2     384.9                           109604160.0000      0.00  
+    0:00:10   27716.7      0.00       0.0     386.7                           111055088.0000      0.00  
+    0:00:10   27716.7      0.00       0.0     386.7                           111055088.0000      0.00  
+    0:00:10   27716.7      0.00       0.0     386.7                           111055088.0000      0.00  
+    0:00:10   27716.7      0.00       0.0     386.7                           111055088.0000      0.00  
+    0:00:10   27716.7      0.00       0.0     386.7                           111055088.0000      0.00  
+    0:00:10   27716.7      0.00       0.0     386.7                           111055088.0000      0.00  
+    0:00:10   27716.7      0.00       0.0     386.7                           111055088.0000      0.00  
+    0:00:10   27716.7      0.00       0.0     386.7                           111055088.0000      0.00  
+    0:00:10   27716.7      0.00       0.0     386.7                           111055088.0000      0.00  
+    0:00:10   27716.7      0.00       0.0     386.7                           111055088.0000      0.00  
+    0:00:10   27716.7      0.00       0.0     386.7                           111055088.0000      0.00  
+    0:00:10   27716.7      0.00       0.0     386.7                           111055088.0000      0.00  
+    0:00:10   27716.7      0.00       0.0     386.7                           111055088.0000      0.00  
+    0:00:10   27716.7      0.00       0.0     386.7                           111055088.0000      0.00  
+    0:00:10   27716.7      0.00       0.0     386.7                           111055088.0000      0.00  
+    0:00:10   27716.7      0.00       0.0     386.7                           111055088.0000      0.00  
+    0:00:10   27716.7      0.00       0.0     386.7                           111055088.0000      0.00  
+
+
+  Beginning Design Rule Fixing  (max_transition)  (max_capacitance)
+  ----------------------------
+
+                                  TOTAL                                                            
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE   MIN DELAY 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER      COST    
+  --------- --------- --------- --------- --------- ------------------------- --------- -----------
+    0:00:10   27716.7      0.00       0.0     386.7                           111055088.0000      0.00  
+  Global Optimization (Phase 31)
+  Global Optimization (Phase 32)
+  Global Optimization (Phase 33)
+    0:00:10   27720.9      0.00       0.0      28.1                           111094640.0000      0.00  
+    0:00:10   27720.9      0.00       0.0      28.1                           111094640.0000      0.00  
+
+
+  Beginning Power Optimization
+  ----------------------------
+
+                                  TOTAL                                                            
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE   MIN DELAY 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER      COST    
+  --------- --------- --------- --------- --------- ------------------------- --------- -----------
+    0:00:10   27720.9      0.00       0.0      28.1                           111094640.0000      0.00  
+  Global Optimization (Phase 34)
+  Global Optimization (Phase 35)
+  Global Optimization (Phase 36)
+  Global Optimization (Phase 37)
+  Global Optimization (Phase 38)
+  Global Optimization (Phase 39)
+  Global Optimization (Phase 40)
+  Global Optimization (Phase 41)
+  Global Optimization (Phase 42)
+  Global Optimization (Phase 43)
+  Global Optimization (Phase 44)
+  Global Optimization (Phase 45)
+  Global Optimization (Phase 46)
+    0:00:11   27936.8      0.00       0.0      13.6                           99127760.0000      0.00  
+    0:00:11   27936.8      0.00       0.0      13.6                           99127760.0000      0.00  
+    0:00:11   27936.8      0.00       0.0      13.6                           99127760.0000      0.00  
+    0:00:11   27936.8      0.00       0.0      13.6                           98803768.0000      0.00  
+    0:00:11   27936.8      0.00       0.0      13.6                           98803768.0000      0.00  
+    0:00:11   27936.8      0.00       0.0      13.6                           98803768.0000      0.00  
+    0:00:11   27936.8      0.00       0.0      13.6                           98803768.0000      0.00  
+    0:00:11   27936.8      0.00       0.0      13.6                           98803768.0000      0.00  
+    0:00:11   27936.8      0.00       0.0      13.6                           98803768.0000      0.00  
+    0:00:11   27936.8      0.00       0.0      13.6                           98803768.0000      0.00  
+    0:00:11   27936.8      0.00       0.0      13.6                           98803768.0000      0.00  
+    0:00:11   27936.8      0.00       0.0      13.6                           98803768.0000      0.00  
+    0:00:11   27936.8      0.00       0.0      13.6                           98803768.0000      0.00  
+    0:00:11   27936.8      0.00       0.0      13.6                           98803768.0000      0.00  
+    0:00:11   27936.8      0.00       0.0      13.6                           98803768.0000      0.00  
+    0:00:11   27936.8      0.00       0.0      13.6                           98803768.0000      0.00  
+    0:00:11   27936.8      0.00       0.0      13.6                           98803768.0000      0.00  
+    0:00:11   27936.8      0.00       0.0      13.6                           98803768.0000      0.00  
+    0:00:11   27936.8      0.00       0.0      13.6                           98803768.0000      0.00  
+    0:00:11   27936.8      0.00       0.0      13.6                           98803768.0000      0.00  
+    0:00:11   27936.8      0.00       0.0      13.6                           98803768.0000      0.00  
+    0:00:11   27936.8      0.00       0.0      13.6                           98803768.0000      0.00  
+
+                                  TOTAL                                                            
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE   MIN DELAY 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER      COST    
+  --------- --------- --------- --------- --------- ------------------------- --------- -----------
+    0:00:11   27936.8      0.00       0.0      13.6                           98803768.0000      0.00  
+    0:00:12   27617.2      0.00       0.0      13.6                           99778960.0000      0.00  
+    0:00:12   27617.2      0.00       0.0      13.6                           99778960.0000      0.00  
+    0:00:12   27617.2      0.00       0.0      13.6                           99778960.0000      0.00  
+    0:00:12   27617.2      0.00       0.0      13.6                           99778960.0000      0.00  
+    0:00:12   27627.1      0.00       0.0      13.6                           99657104.0000      0.00  
+    0:00:12   27627.1      0.00       0.0      13.6                           99657104.0000      0.00  
+    0:00:12   27627.1      0.00       0.0      13.6                           99657104.0000      0.00  
+    0:00:12   27627.1      0.00       0.0      13.6                           99657104.0000      0.00  
+    0:00:12   27627.1      0.00       0.0      13.6                           99657104.0000      0.00  
+    0:00:12   27627.1      0.00       0.0      13.6                           99657104.0000      0.00  
+    0:00:12   27344.8      0.00       0.0      13.6                           101376088.0000      0.00  
+Loading db file '/home/m110/m110061576/process/CBDK_TSMC90GUTM_Arm_f1.0/orig_lib/aci/sc-x/synopsys/slow.db'
+Loading db file '/home/m110/m110061576/process/CBDK_TSMC90GUTM_Arm_f1.0/orig_lib/aci/sc-x/synopsys/fast.db'
+Loading db file '/home/m110/m110061576/process/CBDK_TSMC90GUTM_Arm_f1.0/orig_lib/aci/sc-x/synopsys/typical.db'
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+  Loading target library 'fast'
+  Loading target library 'typical'
+Information: State dependent leakage is now switched from off to on.
+Information: Propagating switching activity (low effort zero delay simulation). (PWR-6)
+1
+check_design 
+1
+check_timing
+Information: Updating design information... (UID-85)
+
+Information: Checking generated_clocks...
+
+Information: Checking loops...
+
+Information: Checking no_input_delay...
+
+Information: Checking unconstrained_endpoints...
+
+Information: Checking pulse_clock_cell_type...
+
+Information: Checking no_driving_cell...
+
+Information: Checking partial_input_delay...
+1
+update_timing
+Information: Updating design information... (UID-85)
+1
+set bus_inference_style {%s[%d]}
+%s[%d]
+set bus_naming_style {%s[%d]}
+%s[%d]
+set hdlout_internal_busses true
+true
+change_names -hierarchy -rule verilog
+1
+define_name_rules name_rule -allowed {a-z A-Z 0-9 _} -max_length 255 -type cell
+1
+define_name_rules name_rule -allowed {a-z A-Z 0-9 _[]} -max_length 255 -type net
+1
+define_name_rules name_rule -map {{"\*cell\*" "cell"}}
+1
+define_name_rules name_rule -map {{"*-return", "myreturn"}}
+1
+define_name_rules name_rule -case_insensitive
+1
+change_names -hierarchy -rules name_rule
+1
+set verilogout_show_unconnected_pins true  
+true
+#/*--------------------------------------------------------------*/ 
+#/*----------------------- 5.Write out files --------------------*/ 
+#/*--------------------------------------------------------------*/
+report_resources >> ../fir_syn.report
+report_cell  >> ../fir_syn.report
+report_design >> ../fir_syn.report
+report_area -hierarchy > ../fir_syn.report
+report_timing -path full -input_pins -delay max >> ../fir_syn.report
+report_timing -path full -input_pins -delay min >> ../fir_syn.report
+#report_clock_gating  >> ../fir_syn.report
+report_power  >> ../fir_syn.report
+#report_datapath  >> ../fir_syn.report
+#write -format verilog -hierarchy -output ../fir_syn.v
+write -format verilog -hierarchy -output ../netilst/fir_syn.v
+Writing verilog file '/home/m111/m111061642/DSPIC/HW4/Q2/netilst/fir_syn.v'.
+1
+write_sdf -version 3.0 -context verilog -load_delay cell ../netilst/fir_syn.sdf 
+Information: Writing timing information to file '/home/m111/m111061642/DSPIC/HW4/Q2/netilst/fir_syn.sdf'. (WT-3)
+1
+#write_sdf -version 1.0 -interconn interconnect -nosplit_timing_check -edges check_edge -no_escape -nonegchecks -delimiter / -recrem merge_when_paired -design $DESIGN > ./div_syn.sdf 
+write_sdc ../netilst/fir_syn.sdc 
+1
+exit
+
+Memory usage for this session 374 Mbytes.
+Memory usage for this session including child processes 387 Mbytes.
+CPU usage for this session 20 seconds ( 0.01 hours ).
+Elapsed time for this session 27 seconds ( 0.01 hours ).
+
+Thank you...

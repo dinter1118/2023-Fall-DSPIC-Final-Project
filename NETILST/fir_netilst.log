@@ -1,0 +1,3087 @@
+*** Using c compiler gcc instead of cc ...
+                         Chronologic VCS (TM)
+         Version T-2022.06_Full64 -- Thu Jan  4 15:00:59 2024
+
+                    Copyright (c) 1991 - 2022 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+   or distribution of this software is strictly prohibited.  Licensed Products
+     communicate with Synopsys servers for the purpose of providing software
+    updates, detecting software piracy and verifying that customers are using
+    Licensed Products in conformity with the applicable License Key for such
+  Licensed Products. Synopsys will use information gathered in connection with
+    this process to deliver software updates and pursue software pirates and
+                                   infringers.
+
+ Inclusivity & Diversity - Visit SolvNetPlus to read the "Synopsys Statement on
+            Inclusivity and Diversity" (Refer to article 000036315 at
+                        https://solvnetplus.synopsys.com)
+
+Parsing design file 'FIR_syn_tb.v'
+Parsing design file 'fir_syn.v'
+Parsing library file '/home/m110/m110061576/process/CBDK_TSMC90GUTM_Arm_f1.0/orig_lib/aci/sc-x/verilog/tsmc090.v'
+Top Level Modules:
+       FIR_tb
+TimeScale is 1 ns / 1 ps
+
+   ***   $sdf_annotate() version 1.2R
+   ***    SDF file: "./fir_syn.sdf"
+   ***    Annotation scope: FIR_tb.U1
+   ***    No MTM selection argument specified
+   ***    No SCALE FACTORS argument specified
+   ***    No SCALE TYPE argument specified
+   ***    MTM selection defaulted to "TOOL_CONTROL":
+               (+typdelays compiled, TYPICAL delays selected)
+   ***    SCALE FACTORS defaulted to "1.0:1.0:1.0":
+   ***    SCALE TYPE defaulted to: "FROM_MTM"
+   ***    Turnoff delay: "FROM_FILE"
+   ***    Approximation (mipd) policy: "MAXIMUM"
+
+   ***    SDF annotation begin: Thu Jan  4 15:01:00 2024
+
+
+SDF Info: +pulse_r/100, +pulse_e/100 in effect
+
+          Total errors: 0
+          Total warnings: 0
+   ***    SDF annotation completed: Thu Jan  4 15:01:00 2024
+
+
+Starting vcs inline pass...
+43 modules and 1 UDP read.
+	However, due to incremental compilation, no re-compilation is necessary.
+make: Warning: File 'filelist.hsopt.llvm2_0.objs' has modification time 0.14 s in the future
+make[1]: Warning: File 'filelist.hsopt.llvm2_0.objs' has modification time 0.12 s in the future
+rm -f _cuarc*.so _csrc*.so pre_vcsobj_*.so share_vcsobj_*.so
+make[1]: warning:  Clock skew detected.  Your build may be incomplete.
+make[1]: Warning: File 'filelist.hsopt.llvm2_0.objs' has modification time 0.084 s in the future
+ld -shared  -Bsymbolic   -o .//../simv.daidir//_cuarc0.so objs/amcQw_d.o 
+rm -f _cuarc0.so
+make[1]: warning:  Clock skew detected.  Your build may be incomplete.
+if [ -x ../simv ]; then chmod a-x ../simv; fi
+g++  -o ../simv      -rdynamic  -Wl,-rpath='$ORIGIN'/simv.daidir -Wl,-rpath=./simv.daidir -Wl,-rpath=/usr/cad/synopsys/vcs/2022.06/linux64/lib -L/usr/cad/synopsys/vcs/2022.06/linux64/lib  -Wl,-rpath-link=./    _29716_archive_1.so _prev_archive_1.so _cuarc0.so objs/udps/exIG1.o  SIM_l.o       rmapats_mop.o rmapats.o rmar.o rmar_nd.o  rmar_llvm_0_1.o rmar_llvm_0_0.o           -lnuma -lvirsim -lerrorinf -lsnpsmalloc -lvfs    -lvcsnew -lsimprofile -luclinative /usr/cad/synopsys/vcs/2022.06/linux64/lib/vcs_tls.o   -Wl,-whole-archive  -lvcsucli    -Wl,-no-whole-archive       _vcs_pli_stub_.o   /usr/cad/synopsys/vcs/2022.06/linux64/lib/vcs_save_restore_new.o /usr/cad/synopsys/verdi/2022.06/share/PLI/VCS/LINUX64/pli.a -ldl  -lc -lm -lpthread -ldl 
+../simv up to date
+make: warning:  Clock skew detected.  Your build may be incomplete.
+Chronologic VCS simulator copyright 1991-2022
+Contains Synopsys proprietary information.
+Compiler version T-2022.06_Full64; Runtime version T-2022.06_Full64;  Jan  4 15:01 2024
+Doing SDF annotation ...... Done
+*Verdi* Loading libsscore_vcs202206.so
+FSDB Dumper for VCS, Release Verdi_T-2022.06, Linux x86_64/64bit, 05/29/2022
+(C) 1996 - 2022 by Synopsys, Inc.
+*Verdi* FSDB WARNING: The FSDB file already exists. Overwriting the FSDB file may crash the programs that are using this file.
+*Verdi* : Create FSDB file 'FIR.fsdb'
+*Verdi* : Begin traversing the scopes, layer (0).
+*Verdi* : Enable +mda dumping.
+*Verdi* : End of traversing.
+*Verdi* : Begin traversing the scopes, layer (0).
+*Verdi* : End of traversing.
+////////////// Successful !! //////////////
+
+ Correct_Answer:         217,  OUT_DATA:         217
+////////////// Successful !! //////////////
+
+ Correct_Answer:         895,  OUT_DATA:         895
+////////////// Successful !! //////////////
+
+ Correct_Answer:         859,  OUT_DATA:         859
+////////////// Successful !! //////////////
+
+ Correct_Answer:        -408,  OUT_DATA:        -408
+////////////// Successful !! //////////////
+
+ Correct_Answer:        -523,  OUT_DATA:        -523
+////////////// Successful !! //////////////
+
+ Correct_Answer:         603,  OUT_DATA:         603
+////////////// Successful !! //////////////
+
+ Correct_Answer:        1490,  OUT_DATA:        1490
+////////////// Successful !! //////////////
+
+ Correct_Answer:         409,  OUT_DATA:         409
+////////////// Successful !! //////////////
+
+ Correct_Answer:       -1929,  OUT_DATA:       -1929
+////////////// Successful !! //////////////
+
+ Correct_Answer:       -1148,  OUT_DATA:       -1148
+////////////// Successful !! //////////////
+
+ Correct_Answer:        2298,  OUT_DATA:        2298
+////////////// Successful !! //////////////
+
+ Correct_Answer:        3537,  OUT_DATA:        3537
+////////////// Successful !! //////////////
+
+ Correct_Answer:       -2420,  OUT_DATA:       -2420
+////////////// Successful !! //////////////
+
+ Correct_Answer:       -7420,  OUT_DATA:       -7420
+////////////// Successful !! //////////////
+
+ Correct_Answer:        3491,  OUT_DATA:        3491
+////////////// Successful !! //////////////
+
+ Correct_Answer:       33975,  OUT_DATA:       33975
+////////////// Successful !! //////////////
+
+ Correct_Answer:       71374,  OUT_DATA:       71374
+////////////// Successful !! //////////////
+
+ Correct_Answer:       90127,  OUT_DATA:       90127
+////////////// Successful !! //////////////
+
+ Correct_Answer:       81760,  OUT_DATA:       81760
+////////////// Successful !! //////////////
+
+ Correct_Answer:       61265,  OUT_DATA:       61265
+////////////// Successful !! //////////////
+
+ Correct_Answer:       48036,  OUT_DATA:       48036
+////////////// Successful !! //////////////
+
+ Correct_Answer:       44535,  OUT_DATA:       44535
+////////////// Successful !! //////////////
+
+ Correct_Answer:       29507,  OUT_DATA:       29507
+////////////// Successful !! //////////////
+
+ Correct_Answer:       -5662,  OUT_DATA:       -5662
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -39196,  OUT_DATA:      -39196
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -42299,  OUT_DATA:      -42299
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -18132,  OUT_DATA:      -18132
+////////////// Successful !! //////////////
+
+ Correct_Answer:        2108,  OUT_DATA:        2108
+////////////// Successful !! //////////////
+
+ Correct_Answer:        7692,  OUT_DATA:        7692
+////////////// Successful !! //////////////
+
+ Correct_Answer:       16174,  OUT_DATA:       16174
+////////////// Successful !! //////////////
+
+ Correct_Answer:       37719,  OUT_DATA:       37719
+////////////// Successful !! //////////////
+
+ Correct_Answer:       47989,  OUT_DATA:       47989
+////////////// Successful !! //////////////
+
+ Correct_Answer:       17560,  OUT_DATA:       17560
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -31554,  OUT_DATA:      -31554
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -46034,  OUT_DATA:      -46034
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -11985,  OUT_DATA:      -11985
+////////////// Successful !! //////////////
+
+ Correct_Answer:       23997,  OUT_DATA:       23997
+////////////// Successful !! //////////////
+
+ Correct_Answer:       15895,  OUT_DATA:       15895
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -23019,  OUT_DATA:      -23019
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -43207,  OUT_DATA:      -43207
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -28888,  OUT_DATA:      -28888
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -11875,  OUT_DATA:      -11875
+////////////// Successful !! //////////////
+
+ Correct_Answer:       -8108,  OUT_DATA:       -8108
+////////////// Successful !! //////////////
+
+ Correct_Answer:        -443,  OUT_DATA:        -443
+////////////// Successful !! //////////////
+
+ Correct_Answer:       21181,  OUT_DATA:       21181
+////////////// Successful !! //////////////
+
+ Correct_Answer:       36966,  OUT_DATA:       36966
+////////////// Successful !! //////////////
+
+ Correct_Answer:       20365,  OUT_DATA:       20365
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -15315,  OUT_DATA:      -15315
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -28569,  OUT_DATA:      -28569
+////////////// Successful !! //////////////
+
+ Correct_Answer:       -2038,  OUT_DATA:       -2038
+////////////// Successful !! //////////////
+
+ Correct_Answer:       40930,  OUT_DATA:       40930
+////////////// Successful !! //////////////
+
+ Correct_Answer:       69776,  OUT_DATA:       69776
+////////////// Successful !! //////////////
+
+ Correct_Answer:       81404,  OUT_DATA:       81404
+////////////// Successful !! //////////////
+
+ Correct_Answer:       85314,  OUT_DATA:       85314
+////////////// Successful !! //////////////
+
+ Correct_Answer:       86344,  OUT_DATA:       86344
+////////////// Successful !! //////////////
+
+ Correct_Answer:       71411,  OUT_DATA:       71411
+////////////// Successful !! //////////////
+
+ Correct_Answer:       30623,  OUT_DATA:       30623
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -22988,  OUT_DATA:      -22988
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -62363,  OUT_DATA:      -62363
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -52071,  OUT_DATA:      -52071
+////////////// Successful !! //////////////
+
+ Correct_Answer:       12188,  OUT_DATA:       12188
+////////////// Successful !! //////////////
+
+ Correct_Answer:       90435,  OUT_DATA:       90435
+////////////// Successful !! //////////////
+
+ Correct_Answer:      126026,  OUT_DATA:      126026
+////////////// Successful !! //////////////
+
+ Correct_Answer:       93200,  OUT_DATA:       93200
+////////////// Successful !! //////////////
+
+ Correct_Answer:       19730,  OUT_DATA:       19730
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -37149,  OUT_DATA:      -37149
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -38423,  OUT_DATA:      -38423
+////////////// Successful !! //////////////
+
+ Correct_Answer:         890,  OUT_DATA:         890
+////////////// Successful !! //////////////
+
+ Correct_Answer:       33211,  OUT_DATA:       33211
+////////////// Successful !! //////////////
+
+ Correct_Answer:       21209,  OUT_DATA:       21209
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -26601,  OUT_DATA:      -26601
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -64239,  OUT_DATA:      -64239
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -56259,  OUT_DATA:      -56259
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -10301,  OUT_DATA:      -10301
+////////////// Successful !! //////////////
+
+ Correct_Answer:       30851,  OUT_DATA:       30851
+////////////// Successful !! //////////////
+
+ Correct_Answer:       41669,  OUT_DATA:       41669
+////////////// Successful !! //////////////
+
+ Correct_Answer:       39339,  OUT_DATA:       39339
+////////////// Successful !! //////////////
+
+ Correct_Answer:       45214,  OUT_DATA:       45214
+////////////// Successful !! //////////////
+
+ Correct_Answer:       54010,  OUT_DATA:       54010
+////////////// Successful !! //////////////
+
+ Correct_Answer:       35627,  OUT_DATA:       35627
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -12234,  OUT_DATA:      -12234
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -52315,  OUT_DATA:      -52315
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -56668,  OUT_DATA:      -56668
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -34743,  OUT_DATA:      -34743
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -17734,  OUT_DATA:      -17734
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -15142,  OUT_DATA:      -15142
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -18073,  OUT_DATA:      -18073
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -15326,  OUT_DATA:      -15326
+////////////// Successful !! //////////////
+
+ Correct_Answer:         135,  OUT_DATA:         135
+////////////// Successful !! //////////////
+
+ Correct_Answer:       25742,  OUT_DATA:       25742
+////////////// Successful !! //////////////
+
+ Correct_Answer:       47552,  OUT_DATA:       47552
+////////////// Successful !! //////////////
+
+ Correct_Answer:       43481,  OUT_DATA:       43481
+////////////// Successful !! //////////////
+
+ Correct_Answer:         142,  OUT_DATA:         142
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -46551,  OUT_DATA:      -46551
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -42337,  OUT_DATA:      -42337
+////////////// Successful !! //////////////
+
+ Correct_Answer:       12608,  OUT_DATA:       12608
+////////////// Successful !! //////////////
+
+ Correct_Answer:       57096,  OUT_DATA:       57096
+////////////// Successful !! //////////////
+
+ Correct_Answer:       36856,  OUT_DATA:       36856
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -26139,  OUT_DATA:      -26139
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -63353,  OUT_DATA:      -63353
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -45079,  OUT_DATA:      -45079
+////////////// Successful !! //////////////
+
+ Correct_Answer:       -9601,  OUT_DATA:       -9601
+////////////// Successful !! //////////////
+
+ Correct_Answer:        3736,  OUT_DATA:        3736
+////////////// Successful !! //////////////
+
+ Correct_Answer:       -2616,  OUT_DATA:       -2616
+////////////// Successful !! //////////////
+
+ Correct_Answer:       -3489,  OUT_DATA:       -3489
+////////////// Successful !! //////////////
+
+ Correct_Answer:       11475,  OUT_DATA:       11475
+////////////// Successful !! //////////////
+
+ Correct_Answer:       23529,  OUT_DATA:       23529
+////////////// Successful !! //////////////
+
+ Correct_Answer:       26070,  OUT_DATA:       26070
+////////////// Successful !! //////////////
+
+ Correct_Answer:       33380,  OUT_DATA:       33380
+////////////// Successful !! //////////////
+
+ Correct_Answer:       39590,  OUT_DATA:       39590
+////////////// Successful !! //////////////
+
+ Correct_Answer:       23011,  OUT_DATA:       23011
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -17742,  OUT_DATA:      -17742
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -51274,  OUT_DATA:      -51274
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -49155,  OUT_DATA:      -49155
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -22210,  OUT_DATA:      -22210
+////////////// Successful !! //////////////
+
+ Correct_Answer:       -4905,  OUT_DATA:       -4905
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -14398,  OUT_DATA:      -14398
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -38880,  OUT_DATA:      -38880
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -64130,  OUT_DATA:      -64130
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -82228,  OUT_DATA:      -82228
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -77395,  OUT_DATA:      -77395
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -37865,  OUT_DATA:      -37865
+////////////// Successful !! //////////////
+
+ Correct_Answer:       28769,  OUT_DATA:       28769
+////////////// Successful !! //////////////
+
+ Correct_Answer:       87939,  OUT_DATA:       87939
+////////////// Successful !! //////////////
+
+ Correct_Answer:      104108,  OUT_DATA:      104108
+////////////// Successful !! //////////////
+
+ Correct_Answer:       73967,  OUT_DATA:       73967
+////////////// Successful !! //////////////
+
+ Correct_Answer:       20602,  OUT_DATA:       20602
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -27854,  OUT_DATA:      -27854
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -48058,  OUT_DATA:      -48058
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -20056,  OUT_DATA:      -20056
+////////////// Successful !! //////////////
+
+ Correct_Answer:       43137,  OUT_DATA:       43137
+////////////// Successful !! //////////////
+
+ Correct_Answer:       88674,  OUT_DATA:       88674
+////////////// Successful !! //////////////
+
+ Correct_Answer:       73796,  OUT_DATA:       73796
+////////////// Successful !! //////////////
+
+ Correct_Answer:       18742,  OUT_DATA:       18742
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -11296,  OUT_DATA:      -11296
+////////////// Successful !! //////////////
+
+ Correct_Answer:        9204,  OUT_DATA:        9204
+////////////// Successful !! //////////////
+
+ Correct_Answer:       31116,  OUT_DATA:       31116
+////////////// Successful !! //////////////
+
+ Correct_Answer:       11089,  OUT_DATA:       11089
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -24556,  OUT_DATA:      -24556
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -13163,  OUT_DATA:      -13163
+////////////// Successful !! //////////////
+
+ Correct_Answer:       44947,  OUT_DATA:       44947
+////////////// Successful !! //////////////
+
+ Correct_Answer:       70775,  OUT_DATA:       70775
+////////////// Successful !! //////////////
+
+ Correct_Answer:       18491,  OUT_DATA:       18491
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -59979,  OUT_DATA:      -59979
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -77147,  OUT_DATA:      -77147
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -27902,  OUT_DATA:      -27902
+////////////// Successful !! //////////////
+
+ Correct_Answer:       12925,  OUT_DATA:       12925
+////////////// Successful !! //////////////
+
+ Correct_Answer:        -282,  OUT_DATA:        -282
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -32377,  OUT_DATA:      -32377
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -27516,  OUT_DATA:      -27516
+////////////// Successful !! //////////////
+
+ Correct_Answer:        9195,  OUT_DATA:        9195
+////////////// Successful !! //////////////
+
+ Correct_Answer:       27788,  OUT_DATA:       27788
+////////////// Successful !! //////////////
+
+ Correct_Answer:       12115,  OUT_DATA:       12115
+////////////// Successful !! //////////////
+
+ Correct_Answer:        2044,  OUT_DATA:        2044
+////////////// Successful !! //////////////
+
+ Correct_Answer:       27081,  OUT_DATA:       27081
+////////////// Successful !! //////////////
+
+ Correct_Answer:       59311,  OUT_DATA:       59311
+////////////// Successful !! //////////////
+
+ Correct_Answer:       54924,  OUT_DATA:       54924
+////////////// Successful !! //////////////
+
+ Correct_Answer:       11240,  OUT_DATA:       11240
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -32133,  OUT_DATA:      -32133
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -41059,  OUT_DATA:      -41059
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -19764,  OUT_DATA:      -19764
+////////////// Successful !! //////////////
+
+ Correct_Answer:        7566,  OUT_DATA:        7566
+////////////// Successful !! //////////////
+
+ Correct_Answer:       19046,  OUT_DATA:       19046
+////////////// Successful !! //////////////
+
+ Correct_Answer:        2128,  OUT_DATA:        2128
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -30545,  OUT_DATA:      -30545
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -49120,  OUT_DATA:      -49120
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -34761,  OUT_DATA:      -34761
+////////////// Successful !! //////////////
+
+ Correct_Answer:       -2095,  OUT_DATA:       -2095
+////////////// Successful !! //////////////
+
+ Correct_Answer:       21185,  OUT_DATA:       21185
+////////////// Successful !! //////////////
+
+ Correct_Answer:       27677,  OUT_DATA:       27677
+////////////// Successful !! //////////////
+
+ Correct_Answer:       34292,  OUT_DATA:       34292
+////////////// Successful !! //////////////
+
+ Correct_Answer:       42921,  OUT_DATA:       42921
+////////////// Successful !! //////////////
+
+ Correct_Answer:       26542,  OUT_DATA:       26542
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -20051,  OUT_DATA:      -20051
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -51842,  OUT_DATA:      -51842
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -30299,  OUT_DATA:      -30299
+////////////// Successful !! //////////////
+
+ Correct_Answer:       19317,  OUT_DATA:       19317
+////////////// Successful !! //////////////
+
+ Correct_Answer:       30633,  OUT_DATA:       30633
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -13306,  OUT_DATA:      -13306
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -56485,  OUT_DATA:      -56485
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -54982,  OUT_DATA:      -54982
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -33340,  OUT_DATA:      -33340
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -38927,  OUT_DATA:      -38927
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -65482,  OUT_DATA:      -65482
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -73035,  OUT_DATA:      -73035
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -49701,  OUT_DATA:      -49701
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -31460,  OUT_DATA:      -31460
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -38759,  OUT_DATA:      -38759
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -36718,  OUT_DATA:      -36718
+////////////// Successful !! //////////////
+
+ Correct_Answer:        2748,  OUT_DATA:        2748
+////////////// Successful !! //////////////
+
+ Correct_Answer:       47615,  OUT_DATA:       47615
+////////////// Successful !! //////////////
+
+ Correct_Answer:       44900,  OUT_DATA:       44900
+////////////// Successful !! //////////////
+
+ Correct_Answer:       -3045,  OUT_DATA:       -3045
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -42715,  OUT_DATA:      -42715
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -40589,  OUT_DATA:      -40589
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -17632,  OUT_DATA:      -17632
+////////////// Successful !! //////////////
+
+ Correct_Answer:       -9201,  OUT_DATA:       -9201
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -11299,  OUT_DATA:      -11299
+////////////// Successful !! //////////////
+
+ Correct_Answer:       -8604,  OUT_DATA:       -8604
+////////////// Successful !! //////////////
+
+ Correct_Answer:       -7704,  OUT_DATA:       -7704
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -25881,  OUT_DATA:      -25881
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -58010,  OUT_DATA:      -58010
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -66885,  OUT_DATA:      -66885
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -41580,  OUT_DATA:      -41580
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -11038,  OUT_DATA:      -11038
+////////////// Successful !! //////////////
+
+ Correct_Answer:       -6953,  OUT_DATA:       -6953
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -21079,  OUT_DATA:      -21079
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -17887,  OUT_DATA:      -17887
+////////////// Successful !! //////////////
+
+ Correct_Answer:        6720,  OUT_DATA:        6720
+////////////// Successful !! //////////////
+
+ Correct_Answer:       27033,  OUT_DATA:       27033
+////////////// Successful !! //////////////
+
+ Correct_Answer:       20615,  OUT_DATA:       20615
+////////////// Successful !! //////////////
+
+ Correct_Answer:       -5476,  OUT_DATA:       -5476
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -19745,  OUT_DATA:      -19745
+////////////// Successful !! //////////////
+
+ Correct_Answer:       -5153,  OUT_DATA:       -5153
+////////////// Successful !! //////////////
+
+ Correct_Answer:       21556,  OUT_DATA:       21556
+////////////// Successful !! //////////////
+
+ Correct_Answer:       26857,  OUT_DATA:       26857
+////////////// Successful !! //////////////
+
+ Correct_Answer:       -3811,  OUT_DATA:       -3811
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -45121,  OUT_DATA:      -45121
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -62372,  OUT_DATA:      -62372
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -51407,  OUT_DATA:      -51407
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -40829,  OUT_DATA:      -40829
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -45764,  OUT_DATA:      -45764
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -41355,  OUT_DATA:      -41355
+////////////// Successful !! //////////////
+
+ Correct_Answer:       -4989,  OUT_DATA:       -4989
+////////////// Successful !! //////////////
+
+ Correct_Answer:       32574,  OUT_DATA:       32574
+////////////// Successful !! //////////////
+
+ Correct_Answer:       16844,  OUT_DATA:       16844
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -50118,  OUT_DATA:      -50118
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -95871,  OUT_DATA:      -95871
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -64723,  OUT_DATA:      -64723
+////////////// Successful !! //////////////
+
+ Correct_Answer:        2545,  OUT_DATA:        2545
+////////////// Successful !! //////////////
+
+ Correct_Answer:       23054,  OUT_DATA:       23054
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -21678,  OUT_DATA:      -21678
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -69862,  OUT_DATA:      -69862
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -63634,  OUT_DATA:      -63634
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -15585,  OUT_DATA:      -15585
+////////////// Successful !! //////////////
+
+ Correct_Answer:       15903,  OUT_DATA:       15903
+////////////// Successful !! //////////////
+
+ Correct_Answer:        7031,  OUT_DATA:        7031
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -13890,  OUT_DATA:      -13890
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -14103,  OUT_DATA:      -14103
+////////////// Successful !! //////////////
+
+ Correct_Answer:        5861,  OUT_DATA:        5861
+////////////// Successful !! //////////////
+
+ Correct_Answer:       11225,  OUT_DATA:       11225
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -20180,  OUT_DATA:      -20180
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -63543,  OUT_DATA:      -63543
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -76597,  OUT_DATA:      -76597
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -37041,  OUT_DATA:      -37041
+////////////// Successful !! //////////////
+
+ Correct_Answer:       17662,  OUT_DATA:       17662
+////////////// Successful !! //////////////
+
+ Correct_Answer:       32848,  OUT_DATA:       32848
+////////////// Successful !! //////////////
+
+ Correct_Answer:        5205,  OUT_DATA:        5205
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -17508,  OUT_DATA:      -17508
+////////////// Successful !! //////////////
+
+ Correct_Answer:        2295,  OUT_DATA:        2295
+////////////// Successful !! //////////////
+
+ Correct_Answer:       28900,  OUT_DATA:       28900
+////////////// Successful !! //////////////
+
+ Correct_Answer:        8068,  OUT_DATA:        8068
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -54617,  OUT_DATA:      -54617
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -90433,  OUT_DATA:      -90433
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -50836,  OUT_DATA:      -50836
+////////////// Successful !! //////////////
+
+ Correct_Answer:       24819,  OUT_DATA:       24819
+////////////// Successful !! //////////////
+
+ Correct_Answer:       57994,  OUT_DATA:       57994
+////////////// Successful !! //////////////
+
+ Correct_Answer:       29259,  OUT_DATA:       29259
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -11856,  OUT_DATA:      -11856
+////////////// Successful !! //////////////
+
+ Correct_Answer:       -8399,  OUT_DATA:       -8399
+////////////// Successful !! //////////////
+
+ Correct_Answer:       31651,  OUT_DATA:       31651
+////////////// Successful !! //////////////
+
+ Correct_Answer:       57901,  OUT_DATA:       57901
+////////////// Successful !! //////////////
+
+ Correct_Answer:       42249,  OUT_DATA:       42249
+////////////// Successful !! //////////////
+
+ Correct_Answer:         572,  OUT_DATA:         572
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -29302,  OUT_DATA:      -29302
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -23110,  OUT_DATA:      -23110
+////////////// Successful !! //////////////
+
+ Correct_Answer:       11590,  OUT_DATA:       11590
+////////////// Successful !! //////////////
+
+ Correct_Answer:       50898,  OUT_DATA:       50898
+////////////// Successful !! //////////////
+
+ Correct_Answer:       72304,  OUT_DATA:       72304
+////////////// Successful !! //////////////
+
+ Correct_Answer:       59967,  OUT_DATA:       59967
+////////////// Successful !! //////////////
+
+ Correct_Answer:       25310,  OUT_DATA:       25310
+////////////// Successful !! //////////////
+
+ Correct_Answer:         791,  OUT_DATA:         791
+////////////// Successful !! //////////////
+
+ Correct_Answer:        4618,  OUT_DATA:        4618
+////////////// Successful !! //////////////
+
+ Correct_Answer:       23348,  OUT_DATA:       23348
+////////////// Successful !! //////////////
+
+ Correct_Answer:       31732,  OUT_DATA:       31732
+////////////// Successful !! //////////////
+
+ Correct_Answer:       20033,  OUT_DATA:       20033
+////////////// Successful !! //////////////
+
+ Correct_Answer:       15813,  OUT_DATA:       15813
+////////////// Successful !! //////////////
+
+ Correct_Answer:       34714,  OUT_DATA:       34714
+////////////// Successful !! //////////////
+
+ Correct_Answer:       55583,  OUT_DATA:       55583
+////////////// Successful !! //////////////
+
+ Correct_Answer:       53447,  OUT_DATA:       53447
+////////////// Successful !! //////////////
+
+ Correct_Answer:       30786,  OUT_DATA:       30786
+////////////// Successful !! //////////////
+
+ Correct_Answer:       14590,  OUT_DATA:       14590
+////////////// Successful !! //////////////
+
+ Correct_Answer:       14552,  OUT_DATA:       14552
+////////////// Successful !! //////////////
+
+ Correct_Answer:       15280,  OUT_DATA:       15280
+////////////// Successful !! //////////////
+
+ Correct_Answer:        9119,  OUT_DATA:        9119
+////////////// Successful !! //////////////
+
+ Correct_Answer:       12730,  OUT_DATA:       12730
+////////////// Successful !! //////////////
+
+ Correct_Answer:       36168,  OUT_DATA:       36168
+////////////// Successful !! //////////////
+
+ Correct_Answer:       48720,  OUT_DATA:       48720
+////////////// Successful !! //////////////
+
+ Correct_Answer:       23772,  OUT_DATA:       23772
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -23421,  OUT_DATA:      -23421
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -52268,  OUT_DATA:      -52268
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -36816,  OUT_DATA:      -36816
+////////////// Successful !! //////////////
+
+ Correct_Answer:       -4102,  OUT_DATA:       -4102
+////////////// Successful !! //////////////
+
+ Correct_Answer:       13874,  OUT_DATA:       13874
+////////////// Successful !! //////////////
+
+ Correct_Answer:       13535,  OUT_DATA:       13535
+////////////// Successful !! //////////////
+
+ Correct_Answer:        5135,  OUT_DATA:        5135
+////////////// Successful !! //////////////
+
+ Correct_Answer:       -1210,  OUT_DATA:       -1210
+////////////// Successful !! //////////////
+
+ Correct_Answer:       -1562,  OUT_DATA:       -1562
+////////////// Successful !! //////////////
+
+ Correct_Answer:       -3894,  OUT_DATA:       -3894
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -16412,  OUT_DATA:      -16412
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -35143,  OUT_DATA:      -35143
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -37665,  OUT_DATA:      -37665
+////////////// Successful !! //////////////
+
+ Correct_Answer:        2989,  OUT_DATA:        2989
+////////////// Successful !! //////////////
+
+ Correct_Answer:       73316,  OUT_DATA:       73316
+////////////// Successful !! //////////////
+
+ Correct_Answer:      108933,  OUT_DATA:      108933
+////////////// Successful !! //////////////
+
+ Correct_Answer:       63108,  OUT_DATA:       63108
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -30906,  OUT_DATA:      -30906
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -97852,  OUT_DATA:      -97852
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -97291,  OUT_DATA:      -97291
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -60965,  OUT_DATA:      -60965
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -37652,  OUT_DATA:      -37652
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -30982,  OUT_DATA:      -30982
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -16438,  OUT_DATA:      -16438
+////////////// Successful !! //////////////
+
+ Correct_Answer:        9048,  OUT_DATA:        9048
+////////////// Successful !! //////////////
+
+ Correct_Answer:       20794,  OUT_DATA:       20794
+////////////// Successful !! //////////////
+
+ Correct_Answer:        3673,  OUT_DATA:        3673
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -33705,  OUT_DATA:      -33705
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -66819,  OUT_DATA:      -66819
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -71212,  OUT_DATA:      -71212
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -39658,  OUT_DATA:      -39658
+////////////// Successful !! //////////////
+
+ Correct_Answer:       17728,  OUT_DATA:       17728
+////////////// Successful !! //////////////
+
+ Correct_Answer:       62824,  OUT_DATA:       62824
+////////////// Successful !! //////////////
+
+ Correct_Answer:       60640,  OUT_DATA:       60640
+////////////// Successful !! //////////////
+
+ Correct_Answer:       16773,  OUT_DATA:       16773
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -34921,  OUT_DATA:      -34921
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -59646,  OUT_DATA:      -59646
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -52992,  OUT_DATA:      -52992
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -26048,  OUT_DATA:      -26048
+////////////// Successful !! //////////////
+
+ Correct_Answer:       10504,  OUT_DATA:       10504
+////////////// Successful !! //////////////
+
+ Correct_Answer:       41153,  OUT_DATA:       41153
+////////////// Successful !! //////////////
+
+ Correct_Answer:       49400,  OUT_DATA:       49400
+////////////// Successful !! //////////////
+
+ Correct_Answer:       35071,  OUT_DATA:       35071
+////////////// Successful !! //////////////
+
+ Correct_Answer:       20362,  OUT_DATA:       20362
+////////////// Successful !! //////////////
+
+ Correct_Answer:       26811,  OUT_DATA:       26811
+////////////// Successful !! //////////////
+
+ Correct_Answer:       48778,  OUT_DATA:       48778
+////////////// Successful !! //////////////
+
+ Correct_Answer:       57603,  OUT_DATA:       57603
+////////////// Successful !! //////////////
+
+ Correct_Answer:       41173,  OUT_DATA:       41173
+////////////// Successful !! //////////////
+
+ Correct_Answer:       16078,  OUT_DATA:       16078
+////////////// Successful !! //////////////
+
+ Correct_Answer:       -1978,  OUT_DATA:       -1978
+////////////// Successful !! //////////////
+
+ Correct_Answer:       -4112,  OUT_DATA:       -4112
+////////////// Successful !! //////////////
+
+ Correct_Answer:        1710,  OUT_DATA:        1710
+////////////// Successful !! //////////////
+
+ Correct_Answer:        3774,  OUT_DATA:        3774
+////////////// Successful !! //////////////
+
+ Correct_Answer:       -3776,  OUT_DATA:       -3776
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -22141,  OUT_DATA:      -22141
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -36146,  OUT_DATA:      -36146
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -30787,  OUT_DATA:      -30787
+////////////// Successful !! //////////////
+
+ Correct_Answer:       -8211,  OUT_DATA:       -8211
+////////////// Successful !! //////////////
+
+ Correct_Answer:       11060,  OUT_DATA:       11060
+////////////// Successful !! //////////////
+
+ Correct_Answer:       15051,  OUT_DATA:       15051
+////////////// Successful !! //////////////
+
+ Correct_Answer:       10687,  OUT_DATA:       10687
+////////////// Successful !! //////////////
+
+ Correct_Answer:        7103,  OUT_DATA:        7103
+////////////// Successful !! //////////////
+
+ Correct_Answer:        7330,  OUT_DATA:        7330
+////////////// Successful !! //////////////
+
+ Correct_Answer:        7087,  OUT_DATA:        7087
+////////////// Successful !! //////////////
+
+ Correct_Answer:         351,  OUT_DATA:         351
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -12905,  OUT_DATA:      -12905
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -31449,  OUT_DATA:      -31449
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -42353,  OUT_DATA:      -42353
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -24527,  OUT_DATA:      -24527
+////////////// Successful !! //////////////
+
+ Correct_Answer:       21196,  OUT_DATA:       21196
+////////////// Successful !! //////////////
+
+ Correct_Answer:       50160,  OUT_DATA:       50160
+////////////// Successful !! //////////////
+
+ Correct_Answer:       29007,  OUT_DATA:       29007
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -27930,  OUT_DATA:      -27930
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -66309,  OUT_DATA:      -66309
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -55840,  OUT_DATA:      -55840
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -35039,  OUT_DATA:      -35039
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -41261,  OUT_DATA:      -41261
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -58702,  OUT_DATA:      -58702
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -42694,  OUT_DATA:      -42694
+////////////// Successful !! //////////////
+
+ Correct_Answer:       15575,  OUT_DATA:       15575
+////////////// Successful !! //////////////
+
+ Correct_Answer:       67230,  OUT_DATA:       67230
+////////////// Successful !! //////////////
+
+ Correct_Answer:       66231,  OUT_DATA:       66231
+////////////// Successful !! //////////////
+
+ Correct_Answer:       24467,  OUT_DATA:       24467
+////////////// Successful !! //////////////
+
+ Correct_Answer:       -7709,  OUT_DATA:       -7709
+////////////// Successful !! //////////////
+
+ Correct_Answer:       -1745,  OUT_DATA:       -1745
+////////////// Successful !! //////////////
+
+ Correct_Answer:       20774,  OUT_DATA:       20774
+////////////// Successful !! //////////////
+
+ Correct_Answer:       30584,  OUT_DATA:       30584
+////////////// Successful !! //////////////
+
+ Correct_Answer:       25555,  OUT_DATA:       25555
+////////////// Successful !! //////////////
+
+ Correct_Answer:       23249,  OUT_DATA:       23249
+////////////// Successful !! //////////////
+
+ Correct_Answer:       24233,  OUT_DATA:       24233
+////////////// Successful !! //////////////
+
+ Correct_Answer:       11773,  OUT_DATA:       11773
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -14435,  OUT_DATA:      -14435
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -22273,  OUT_DATA:      -22273
+////////////// Successful !! //////////////
+
+ Correct_Answer:        6327,  OUT_DATA:        6327
+////////////// Successful !! //////////////
+
+ Correct_Answer:       34100,  OUT_DATA:       34100
+////////////// Successful !! //////////////
+
+ Correct_Answer:       19017,  OUT_DATA:       19017
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -31027,  OUT_DATA:      -31027
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -43855,  OUT_DATA:      -43855
+////////////// Successful !! //////////////
+
+ Correct_Answer:       21370,  OUT_DATA:       21370
+////////////// Successful !! //////////////
+
+ Correct_Answer:       96819,  OUT_DATA:       96819
+////////////// Successful !! //////////////
+
+ Correct_Answer:       91521,  OUT_DATA:       91521
+////////////// Successful !! //////////////
+
+ Correct_Answer:       -1254,  OUT_DATA:       -1254
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -90347,  OUT_DATA:      -90347
+////////////// Successful !! //////////////
+
+ Correct_Answer:     -102466,  OUT_DATA:     -102466
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -62397,  OUT_DATA:      -62397
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -39083,  OUT_DATA:      -39083
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -53753,  OUT_DATA:      -53753
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -79962,  OUT_DATA:      -79962
+////////////// Successful !! //////////////
+
+ Correct_Answer:     -100618,  OUT_DATA:     -100618
+////////////// Successful !! //////////////
+
+ Correct_Answer:     -117746,  OUT_DATA:     -117746
+////////////// Successful !! //////////////
+
+ Correct_Answer:     -111548,  OUT_DATA:     -111548
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -51650,  OUT_DATA:      -51650
+////////////// Successful !! //////////////
+
+ Correct_Answer:       39794,  OUT_DATA:       39794
+////////////// Successful !! //////////////
+
+ Correct_Answer:       86234,  OUT_DATA:       86234
+////////////// Successful !! //////////////
+
+ Correct_Answer:       41533,  OUT_DATA:       41533
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -33450,  OUT_DATA:      -33450
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -35821,  OUT_DATA:      -35821
+////////////// Successful !! //////////////
+
+ Correct_Answer:       43741,  OUT_DATA:       43741
+////////////// Successful !! //////////////
+
+ Correct_Answer:      107812,  OUT_DATA:      107812
+////////////// Successful !! //////////////
+
+ Correct_Answer:       78128,  OUT_DATA:       78128
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -12762,  OUT_DATA:      -12762
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -67897,  OUT_DATA:      -67897
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -53511,  OUT_DATA:      -53511
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -22658,  OUT_DATA:      -22658
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -21942,  OUT_DATA:      -21942
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -26852,  OUT_DATA:      -26852
+////////////// Successful !! //////////////
+
+ Correct_Answer:        6987,  OUT_DATA:        6987
+////////////// Successful !! //////////////
+
+ Correct_Answer:       64978,  OUT_DATA:       64978
+////////////// Successful !! //////////////
+
+ Correct_Answer:       76273,  OUT_DATA:       76273
+////////////// Successful !! //////////////
+
+ Correct_Answer:        9639,  OUT_DATA:        9639
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -69720,  OUT_DATA:      -69720
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -77290,  OUT_DATA:      -77290
+////////////// Successful !! //////////////
+
+ Correct_Answer:       -6140,  OUT_DATA:       -6140
+////////////// Successful !! //////////////
+
+ Correct_Answer:       64375,  OUT_DATA:       64375
+////////////// Successful !! //////////////
+
+ Correct_Answer:       67543,  OUT_DATA:       67543
+////////////// Successful !! //////////////
+
+ Correct_Answer:       16659,  OUT_DATA:       16659
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -28631,  OUT_DATA:      -28631
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -30777,  OUT_DATA:      -30777
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -10790,  OUT_DATA:      -10790
+////////////// Successful !! //////////////
+
+ Correct_Answer:        -468,  OUT_DATA:        -468
+////////////// Successful !! //////////////
+
+ Correct_Answer:        4364,  OUT_DATA:        4364
+////////////// Successful !! //////////////
+
+ Correct_Answer:       23730,  OUT_DATA:       23730
+////////////// Successful !! //////////////
+
+ Correct_Answer:       56675,  OUT_DATA:       56675
+////////////// Successful !! //////////////
+
+ Correct_Answer:       67715,  OUT_DATA:       67715
+////////////// Successful !! //////////////
+
+ Correct_Answer:       25926,  OUT_DATA:       25926
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -50349,  OUT_DATA:      -50349
+////////////// Successful !! //////////////
+
+ Correct_Answer:     -104294,  OUT_DATA:     -104294
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -99747,  OUT_DATA:      -99747
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -47675,  OUT_DATA:      -47675
+////////////// Successful !! //////////////
+
+ Correct_Answer:        4544,  OUT_DATA:        4544
+////////////// Successful !! //////////////
+
+ Correct_Answer:       18103,  OUT_DATA:       18103
+////////////// Successful !! //////////////
+
+ Correct_Answer:         338,  OUT_DATA:         338
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -17597,  OUT_DATA:      -17597
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -15571,  OUT_DATA:      -15571
+////////////// Successful !! //////////////
+
+ Correct_Answer:        2419,  OUT_DATA:        2419
+////////////// Successful !! //////////////
+
+ Correct_Answer:       20813,  OUT_DATA:       20813
+////////////// Successful !! //////////////
+
+ Correct_Answer:       28847,  OUT_DATA:       28847
+////////////// Successful !! //////////////
+
+ Correct_Answer:       31624,  OUT_DATA:       31624
+////////////// Successful !! //////////////
+
+ Correct_Answer:       31849,  OUT_DATA:       31849
+////////////// Successful !! //////////////
+
+ Correct_Answer:       31809,  OUT_DATA:       31809
+////////////// Successful !! //////////////
+
+ Correct_Answer:       31206,  OUT_DATA:       31206
+////////////// Successful !! //////////////
+
+ Correct_Answer:       27647,  OUT_DATA:       27647
+////////////// Successful !! //////////////
+
+ Correct_Answer:       25734,  OUT_DATA:       25734
+////////////// Successful !! //////////////
+
+ Correct_Answer:       28717,  OUT_DATA:       28717
+////////////// Successful !! //////////////
+
+ Correct_Answer:       38988,  OUT_DATA:       38988
+////////////// Successful !! //////////////
+
+ Correct_Answer:       51130,  OUT_DATA:       51130
+////////////// Successful !! //////////////
+
+ Correct_Answer:       57147,  OUT_DATA:       57147
+////////////// Successful !! //////////////
+
+ Correct_Answer:       53499,  OUT_DATA:       53499
+////////////// Successful !! //////////////
+
+ Correct_Answer:       39327,  OUT_DATA:       39327
+////////////// Successful !! //////////////
+
+ Correct_Answer:       25601,  OUT_DATA:       25601
+////////////// Successful !! //////////////
+
+ Correct_Answer:       12321,  OUT_DATA:       12321
+////////////// Successful !! //////////////
+
+ Correct_Answer:       -1736,  OUT_DATA:       -1736
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -13119,  OUT_DATA:      -13119
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -21079,  OUT_DATA:      -21079
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -15910,  OUT_DATA:      -15910
+////////////// Successful !! //////////////
+
+ Correct_Answer:       -5148,  OUT_DATA:       -5148
+////////////// Successful !! //////////////
+
+ Correct_Answer:        3864,  OUT_DATA:        3864
+////////////// Successful !! //////////////
+
+ Correct_Answer:        8509,  OUT_DATA:        8509
+////////////// Successful !! //////////////
+
+ Correct_Answer:       12361,  OUT_DATA:       12361
+////////////// Successful !! //////////////
+
+ Correct_Answer:       16998,  OUT_DATA:       16998
+////////////// Successful !! //////////////
+
+ Correct_Answer:       12311,  OUT_DATA:       12311
+////////////// Successful !! //////////////
+
+ Correct_Answer:       -6478,  OUT_DATA:       -6478
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -36031,  OUT_DATA:      -36031
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -54025,  OUT_DATA:      -54025
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -49680,  OUT_DATA:      -49680
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -24133,  OUT_DATA:      -24133
+////////////// Successful !! //////////////
+
+ Correct_Answer:       12248,  OUT_DATA:       12248
+////////////// Successful !! //////////////
+
+ Correct_Answer:       30603,  OUT_DATA:       30603
+////////////// Successful !! //////////////
+
+ Correct_Answer:       19799,  OUT_DATA:       19799
+////////////// Successful !! //////////////
+
+ Correct_Answer:       -8471,  OUT_DATA:       -8471
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -22303,  OUT_DATA:      -22303
+////////////// Successful !! //////////////
+
+ Correct_Answer:       -8884,  OUT_DATA:       -8884
+////////////// Successful !! //////////////
+
+ Correct_Answer:        2974,  OUT_DATA:        2974
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -18381,  OUT_DATA:      -18381
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -69904,  OUT_DATA:      -69904
+////////////// Successful !! //////////////
+
+ Correct_Answer:     -104289,  OUT_DATA:     -104289
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -88162,  OUT_DATA:      -88162
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -35810,  OUT_DATA:      -35810
+////////////// Successful !! //////////////
+
+ Correct_Answer:       17230,  OUT_DATA:       17230
+////////////// Successful !! //////////////
+
+ Correct_Answer:       43867,  OUT_DATA:       43867
+////////////// Successful !! //////////////
+
+ Correct_Answer:       42216,  OUT_DATA:       42216
+////////////// Successful !! //////////////
+
+ Correct_Answer:       19152,  OUT_DATA:       19152
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -12267,  OUT_DATA:      -12267
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -31903,  OUT_DATA:      -31903
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -30858,  OUT_DATA:      -30858
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -19033,  OUT_DATA:      -19033
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -13864,  OUT_DATA:      -13864
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -14974,  OUT_DATA:      -14974
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -10839,  OUT_DATA:      -10839
+////////////// Successful !! //////////////
+
+ Correct_Answer:       -7412,  OUT_DATA:       -7412
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -15258,  OUT_DATA:      -15258
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -27633,  OUT_DATA:      -27633
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -21739,  OUT_DATA:      -21739
+////////////// Successful !! //////////////
+
+ Correct_Answer:       14249,  OUT_DATA:       14249
+////////////// Successful !! //////////////
+
+ Correct_Answer:       47551,  OUT_DATA:       47551
+////////////// Successful !! //////////////
+
+ Correct_Answer:       40590,  OUT_DATA:       40590
+////////////// Successful !! //////////////
+
+ Correct_Answer:       -4189,  OUT_DATA:       -4189
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -40517,  OUT_DATA:      -40517
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -35025,  OUT_DATA:      -35025
+////////////// Successful !! //////////////
+
+ Correct_Answer:        1427,  OUT_DATA:        1427
+////////////// Successful !! //////////////
+
+ Correct_Answer:       43340,  OUT_DATA:       43340
+////////////// Successful !! //////////////
+
+ Correct_Answer:       63528,  OUT_DATA:       63528
+////////////// Successful !! //////////////
+
+ Correct_Answer:       65792,  OUT_DATA:       65792
+////////////// Successful !! //////////////
+
+ Correct_Answer:       60916,  OUT_DATA:       60916
+////////////// Successful !! //////////////
+
+ Correct_Answer:       52686,  OUT_DATA:       52686
+////////////// Successful !! //////////////
+
+ Correct_Answer:       42454,  OUT_DATA:       42454
+////////////// Successful !! //////////////
+
+ Correct_Answer:       17064,  OUT_DATA:       17064
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -19784,  OUT_DATA:      -19784
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -46512,  OUT_DATA:      -46512
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -38191,  OUT_DATA:      -38191
+////////////// Successful !! //////////////
+
+ Correct_Answer:       -2811,  OUT_DATA:       -2811
+////////////// Successful !! //////////////
+
+ Correct_Answer:       22536,  OUT_DATA:       22536
+////////////// Successful !! //////////////
+
+ Correct_Answer:       17792,  OUT_DATA:       17792
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -15908,  OUT_DATA:      -15908
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -43235,  OUT_DATA:      -43235
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -47493,  OUT_DATA:      -47493
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -44185,  OUT_DATA:      -44185
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -39671,  OUT_DATA:      -39671
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -33295,  OUT_DATA:      -33295
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -16422,  OUT_DATA:      -16422
+////////////// Successful !! //////////////
+
+ Correct_Answer:        2950,  OUT_DATA:        2950
+////////////// Successful !! //////////////
+
+ Correct_Answer:        6364,  OUT_DATA:        6364
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -20478,  OUT_DATA:      -20478
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -59968,  OUT_DATA:      -59968
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -71731,  OUT_DATA:      -71731
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -42833,  OUT_DATA:      -42833
+////////////// Successful !! //////////////
+
+ Correct_Answer:        1185,  OUT_DATA:        1185
+////////////// Successful !! //////////////
+
+ Correct_Answer:       12783,  OUT_DATA:       12783
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -23169,  OUT_DATA:      -23169
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -60080,  OUT_DATA:      -60080
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -52246,  OUT_DATA:      -52246
+////////////// Successful !! //////////////
+
+ Correct_Answer:       -5060,  OUT_DATA:       -5060
+////////////// Successful !! //////////////
+
+ Correct_Answer:       37542,  OUT_DATA:       37542
+////////////// Successful !! //////////////
+
+ Correct_Answer:       41287,  OUT_DATA:       41287
+////////////// Successful !! //////////////
+
+ Correct_Answer:       17370,  OUT_DATA:       17370
+////////////// Successful !! //////////////
+
+ Correct_Answer:        -747,  OUT_DATA:        -747
+////////////// Successful !! //////////////
+
+ Correct_Answer:        5315,  OUT_DATA:        5315
+////////////// Successful !! //////////////
+
+ Correct_Answer:       25288,  OUT_DATA:       25288
+////////////// Successful !! //////////////
+
+ Correct_Answer:       50778,  OUT_DATA:       50778
+////////////// Successful !! //////////////
+
+ Correct_Answer:       75388,  OUT_DATA:       75388
+////////////// Successful !! //////////////
+
+ Correct_Answer:       86125,  OUT_DATA:       86125
+////////////// Successful !! //////////////
+
+ Correct_Answer:       80235,  OUT_DATA:       80235
+////////////// Successful !! //////////////
+
+ Correct_Answer:       72089,  OUT_DATA:       72089
+////////////// Successful !! //////////////
+
+ Correct_Answer:       68049,  OUT_DATA:       68049
+////////////// Successful !! //////////////
+
+ Correct_Answer:       57460,  OUT_DATA:       57460
+////////////// Successful !! //////////////
+
+ Correct_Answer:       28903,  OUT_DATA:       28903
+////////////// Successful !! //////////////
+
+ Correct_Answer:       -3450,  OUT_DATA:       -3450
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -13308,  OUT_DATA:      -13308
+////////////// Successful !! //////////////
+
+ Correct_Answer:       -8641,  OUT_DATA:       -8641
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -20388,  OUT_DATA:      -20388
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -57062,  OUT_DATA:      -57062
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -77993,  OUT_DATA:      -77993
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -49384,  OUT_DATA:      -49384
+////////////// Successful !! //////////////
+
+ Correct_Answer:        7296,  OUT_DATA:        7296
+////////////// Successful !! //////////////
+
+ Correct_Answer:       38833,  OUT_DATA:       38833
+////////////// Successful !! //////////////
+
+ Correct_Answer:       25024,  OUT_DATA:       25024
+////////////// Successful !! //////////////
+
+ Correct_Answer:        3279,  OUT_DATA:        3279
+////////////// Successful !! //////////////
+
+ Correct_Answer:        9471,  OUT_DATA:        9471
+////////////// Successful !! //////////////
+
+ Correct_Answer:       28498,  OUT_DATA:       28498
+////////////// Successful !! //////////////
+
+ Correct_Answer:       20502,  OUT_DATA:       20502
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -18687,  OUT_DATA:      -18687
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -57595,  OUT_DATA:      -57595
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -71863,  OUT_DATA:      -71863
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -62294,  OUT_DATA:      -62294
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -45981,  OUT_DATA:      -45981
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -25752,  OUT_DATA:      -25752
+////////////// Successful !! //////////////
+
+ Correct_Answer:        7104,  OUT_DATA:        7104
+////////////// Successful !! //////////////
+
+ Correct_Answer:       36455,  OUT_DATA:       36455
+////////////// Successful !! //////////////
+
+ Correct_Answer:       42253,  OUT_DATA:       42253
+////////////// Successful !! //////////////
+
+ Correct_Answer:       22770,  OUT_DATA:       22770
+////////////// Successful !! //////////////
+
+ Correct_Answer:        -990,  OUT_DATA:        -990
+////////////// Successful !! //////////////
+
+ Correct_Answer:       -5216,  OUT_DATA:       -5216
+////////////// Successful !! //////////////
+
+ Correct_Answer:        6452,  OUT_DATA:        6452
+////////////// Successful !! //////////////
+
+ Correct_Answer:       21363,  OUT_DATA:       21363
+////////////// Successful !! //////////////
+
+ Correct_Answer:       28015,  OUT_DATA:       28015
+////////////// Successful !! //////////////
+
+ Correct_Answer:       19061,  OUT_DATA:       19061
+////////////// Successful !! //////////////
+
+ Correct_Answer:       -9020,  OUT_DATA:       -9020
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -36362,  OUT_DATA:      -36362
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -25736,  OUT_DATA:      -25736
+////////////// Successful !! //////////////
+
+ Correct_Answer:       25631,  OUT_DATA:       25631
+////////////// Successful !! //////////////
+
+ Correct_Answer:       73627,  OUT_DATA:       73627
+////////////// Successful !! //////////////
+
+ Correct_Answer:       60097,  OUT_DATA:       60097
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -14263,  OUT_DATA:      -14263
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -77826,  OUT_DATA:      -77826
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -73231,  OUT_DATA:      -73231
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -19906,  OUT_DATA:      -19906
+////////////// Successful !! //////////////
+
+ Correct_Answer:        9916,  OUT_DATA:        9916
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -19924,  OUT_DATA:      -19924
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -70397,  OUT_DATA:      -70397
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -85355,  OUT_DATA:      -85355
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -55587,  OUT_DATA:      -55587
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -16061,  OUT_DATA:      -16061
+////////////// Successful !! //////////////
+
+ Correct_Answer:        2255,  OUT_DATA:        2255
+////////////// Successful !! //////////////
+
+ Correct_Answer:        3609,  OUT_DATA:        3609
+////////////// Successful !! //////////////
+
+ Correct_Answer:       10863,  OUT_DATA:       10863
+////////////// Successful !! //////////////
+
+ Correct_Answer:       23916,  OUT_DATA:       23916
+////////////// Successful !! //////////////
+
+ Correct_Answer:       25223,  OUT_DATA:       25223
+////////////// Successful !! //////////////
+
+ Correct_Answer:       13022,  OUT_DATA:       13022
+////////////// Successful !! //////////////
+
+ Correct_Answer:        2248,  OUT_DATA:        2248
+////////////// Successful !! //////////////
+
+ Correct_Answer:        4325,  OUT_DATA:        4325
+////////////// Successful !! //////////////
+
+ Correct_Answer:        8932,  OUT_DATA:        8932
+////////////// Successful !! //////////////
+
+ Correct_Answer:        7611,  OUT_DATA:        7611
+////////////// Successful !! //////////////
+
+ Correct_Answer:       13038,  OUT_DATA:       13038
+////////////// Successful !! //////////////
+
+ Correct_Answer:       36263,  OUT_DATA:       36263
+////////////// Successful !! //////////////
+
+ Correct_Answer:       57717,  OUT_DATA:       57717
+////////////// Successful !! //////////////
+
+ Correct_Answer:       38872,  OUT_DATA:       38872
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -22944,  OUT_DATA:      -22944
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -73183,  OUT_DATA:      -73183
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -56796,  OUT_DATA:      -56796
+////////////// Successful !! //////////////
+
+ Correct_Answer:       12921,  OUT_DATA:       12921
+////////////// Successful !! //////////////
+
+ Correct_Answer:       64696,  OUT_DATA:       64696
+////////////// Successful !! //////////////
+
+ Correct_Answer:       49831,  OUT_DATA:       49831
+////////////// Successful !! //////////////
+
+ Correct_Answer:        -757,  OUT_DATA:        -757
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -30905,  OUT_DATA:      -30905
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -22559,  OUT_DATA:      -22559
+////////////// Successful !! //////////////
+
+ Correct_Answer:        -969,  OUT_DATA:        -969
+////////////// Successful !! //////////////
+
+ Correct_Answer:       -4150,  OUT_DATA:       -4150
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -27186,  OUT_DATA:      -27186
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -40473,  OUT_DATA:      -40473
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -27296,  OUT_DATA:      -27296
+////////////// Successful !! //////////////
+
+ Correct_Answer:        5478,  OUT_DATA:        5478
+////////////// Successful !! //////////////
+
+ Correct_Answer:       21920,  OUT_DATA:       21920
+////////////// Successful !! //////////////
+
+ Correct_Answer:        2513,  OUT_DATA:        2513
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -41089,  OUT_DATA:      -41089
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -70334,  OUT_DATA:      -70334
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -44608,  OUT_DATA:      -44608
+////////////// Successful !! //////////////
+
+ Correct_Answer:       29150,  OUT_DATA:       29150
+////////////// Successful !! //////////////
+
+ Correct_Answer:       98931,  OUT_DATA:       98931
+////////////// Successful !! //////////////
+
+ Correct_Answer:      106704,  OUT_DATA:      106704
+////////////// Successful !! //////////////
+
+ Correct_Answer:       47435,  OUT_DATA:       47435
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -23497,  OUT_DATA:      -23497
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -48544,  OUT_DATA:      -48544
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -26725,  OUT_DATA:      -26725
+////////////// Successful !! //////////////
+
+ Correct_Answer:       -4139,  OUT_DATA:       -4139
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -14124,  OUT_DATA:      -14124
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -44043,  OUT_DATA:      -44043
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -57725,  OUT_DATA:      -57725
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -52285,  OUT_DATA:      -52285
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -57351,  OUT_DATA:      -57351
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -78961,  OUT_DATA:      -78961
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -90189,  OUT_DATA:      -90189
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -61017,  OUT_DATA:      -61017
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -10205,  OUT_DATA:      -10205
+////////////// Successful !! //////////////
+
+ Correct_Answer:        4675,  OUT_DATA:        4675
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -34840,  OUT_DATA:      -34840
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -86910,  OUT_DATA:      -86910
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -85437,  OUT_DATA:      -85437
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -21394,  OUT_DATA:      -21394
+////////////// Successful !! //////////////
+
+ Correct_Answer:       47251,  OUT_DATA:       47251
+////////////// Successful !! //////////////
+
+ Correct_Answer:       61962,  OUT_DATA:       61962
+////////////// Successful !! //////////////
+
+ Correct_Answer:       23543,  OUT_DATA:       23543
+////////////// Successful !! //////////////
+
+ Correct_Answer:       -6544,  OUT_DATA:       -6544
+////////////// Successful !! //////////////
+
+ Correct_Answer:       11421,  OUT_DATA:       11421
+////////////// Successful !! //////////////
+
+ Correct_Answer:       56347,  OUT_DATA:       56347
+////////////// Successful !! //////////////
+
+ Correct_Answer:       76262,  OUT_DATA:       76262
+////////////// Successful !! //////////////
+
+ Correct_Answer:       42507,  OUT_DATA:       42507
+////////////// Successful !! //////////////
+
+ Correct_Answer:       -8039,  OUT_DATA:       -8039
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -19913,  OUT_DATA:      -19913
+////////////// Successful !! //////////////
+
+ Correct_Answer:       26617,  OUT_DATA:       26617
+////////////// Successful !! //////////////
+
+ Correct_Answer:       95441,  OUT_DATA:       95441
+////////////// Successful !! //////////////
+
+ Correct_Answer:      126879,  OUT_DATA:      126879
+////////////// Successful !! //////////////
+
+ Correct_Answer:      100864,  OUT_DATA:      100864
+////////////// Successful !! //////////////
+
+ Correct_Answer:       40607,  OUT_DATA:       40607
+////////////// Successful !! //////////////
+
+ Correct_Answer:       -6811,  OUT_DATA:       -6811
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -21952,  OUT_DATA:      -21952
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -12278,  OUT_DATA:      -12278
+////////////// Successful !! //////////////
+
+ Correct_Answer:        9120,  OUT_DATA:        9120
+////////////// Successful !! //////////////
+
+ Correct_Answer:       27995,  OUT_DATA:       27995
+////////////// Successful !! //////////////
+
+ Correct_Answer:       42309,  OUT_DATA:       42309
+////////////// Successful !! //////////////
+
+ Correct_Answer:       48590,  OUT_DATA:       48590
+////////////// Successful !! //////////////
+
+ Correct_Answer:       41893,  OUT_DATA:       41893
+////////////// Successful !! //////////////
+
+ Correct_Answer:       24760,  OUT_DATA:       24760
+////////////// Successful !! //////////////
+
+ Correct_Answer:        3163,  OUT_DATA:        3163
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -13459,  OUT_DATA:      -13459
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -20226,  OUT_DATA:      -20226
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -15489,  OUT_DATA:      -15489
+////////////// Successful !! //////////////
+
+ Correct_Answer:       -2759,  OUT_DATA:       -2759
+////////////// Successful !! //////////////
+
+ Correct_Answer:        4694,  OUT_DATA:        4694
+////////////// Successful !! //////////////
+
+ Correct_Answer:       -3406,  OUT_DATA:       -3406
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -25367,  OUT_DATA:      -25367
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -38332,  OUT_DATA:      -38332
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -28863,  OUT_DATA:      -28863
+////////////// Successful !! //////////////
+
+ Correct_Answer:       -6177,  OUT_DATA:       -6177
+////////////// Successful !! //////////////
+
+ Correct_Answer:        8766,  OUT_DATA:        8766
+////////////// Successful !! //////////////
+
+ Correct_Answer:        9206,  OUT_DATA:        9206
+////////////// Successful !! //////////////
+
+ Correct_Answer:       18917,  OUT_DATA:       18917
+////////////// Successful !! //////////////
+
+ Correct_Answer:       47490,  OUT_DATA:       47490
+////////////// Successful !! //////////////
+
+ Correct_Answer:       68328,  OUT_DATA:       68328
+////////////// Successful !! //////////////
+
+ Correct_Answer:       46333,  OUT_DATA:       46333
+////////////// Successful !! //////////////
+
+ Correct_Answer:       -9368,  OUT_DATA:       -9368
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -41512,  OUT_DATA:      -41512
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -21197,  OUT_DATA:      -21197
+////////////// Successful !! //////////////
+
+ Correct_Answer:       18987,  OUT_DATA:       18987
+////////////// Successful !! //////////////
+
+ Correct_Answer:       26194,  OUT_DATA:       26194
+////////////// Successful !! //////////////
+
+ Correct_Answer:       -7814,  OUT_DATA:       -7814
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -43206,  OUT_DATA:      -43206
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -58687,  OUT_DATA:      -58687
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -66366,  OUT_DATA:      -66366
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -79942,  OUT_DATA:      -79942
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -79479,  OUT_DATA:      -79479
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -45135,  OUT_DATA:      -45135
+////////////// Successful !! //////////////
+
+ Correct_Answer:        -504,  OUT_DATA:        -504
+////////////// Successful !! //////////////
+
+ Correct_Answer:       17071,  OUT_DATA:       17071
+////////////// Successful !! //////////////
+
+ Correct_Answer:        -823,  OUT_DATA:        -823
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -21771,  OUT_DATA:      -21771
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -27081,  OUT_DATA:      -27081
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -25909,  OUT_DATA:      -25909
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -28977,  OUT_DATA:      -28977
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -22092,  OUT_DATA:      -22092
+////////////// Successful !! //////////////
+
+ Correct_Answer:        9074,  OUT_DATA:        9074
+////////////// Successful !! //////////////
+
+ Correct_Answer:       46887,  OUT_DATA:       46887
+////////////// Successful !! //////////////
+
+ Correct_Answer:       61398,  OUT_DATA:       61398
+////////////// Successful !! //////////////
+
+ Correct_Answer:       40588,  OUT_DATA:       40588
+////////////// Successful !! //////////////
+
+ Correct_Answer:       10908,  OUT_DATA:       10908
+////////////// Successful !! //////////////
+
+ Correct_Answer:       -3100,  OUT_DATA:       -3100
+////////////// Successful !! //////////////
+
+ Correct_Answer:       -1990,  OUT_DATA:       -1990
+////////////// Successful !! //////////////
+
+ Correct_Answer:       -5200,  OUT_DATA:       -5200
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -24176,  OUT_DATA:      -24176
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -35422,  OUT_DATA:      -35422
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -12949,  OUT_DATA:      -12949
+////////////// Successful !! //////////////
+
+ Correct_Answer:       41515,  OUT_DATA:       41515
+////////////// Successful !! //////////////
+
+ Correct_Answer:       90991,  OUT_DATA:       90991
+////////////// Successful !! //////////////
+
+ Correct_Answer:       95310,  OUT_DATA:       95310
+////////////// Successful !! //////////////
+
+ Correct_Answer:       61965,  OUT_DATA:       61965
+////////////// Successful !! //////////////
+
+ Correct_Answer:       25410,  OUT_DATA:       25410
+////////////// Successful !! //////////////
+
+ Correct_Answer:       11541,  OUT_DATA:       11541
+////////////// Successful !! //////////////
+
+ Correct_Answer:        4751,  OUT_DATA:        4751
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -16337,  OUT_DATA:      -16337
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -32815,  OUT_DATA:      -32815
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -13456,  OUT_DATA:      -13456
+////////////// Successful !! //////////////
+
+ Correct_Answer:       35735,  OUT_DATA:       35735
+////////////// Successful !! //////////////
+
+ Correct_Answer:       61618,  OUT_DATA:       61618
+////////////// Successful !! //////////////
+
+ Correct_Answer:       28355,  OUT_DATA:       28355
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -30174,  OUT_DATA:      -30174
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -42562,  OUT_DATA:      -42562
+////////////// Successful !! //////////////
+
+ Correct_Answer:       -2627,  OUT_DATA:       -2627
+////////////// Successful !! //////////////
+
+ Correct_Answer:       24574,  OUT_DATA:       24574
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -10841,  OUT_DATA:      -10841
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -73030,  OUT_DATA:      -73030
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -79746,  OUT_DATA:      -79746
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -16999,  OUT_DATA:      -16999
+////////////// Successful !! //////////////
+
+ Correct_Answer:       41582,  OUT_DATA:       41582
+////////////// Successful !! //////////////
+
+ Correct_Answer:       29723,  OUT_DATA:       29723
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -24628,  OUT_DATA:      -24628
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -44925,  OUT_DATA:      -44925
+////////////// Successful !! //////////////
+
+ Correct_Answer:       -7862,  OUT_DATA:       -7862
+////////////// Successful !! //////////////
+
+ Correct_Answer:       36405,  OUT_DATA:       36405
+////////////// Successful !! //////////////
+
+ Correct_Answer:       39838,  OUT_DATA:       39838
+////////////// Successful !! //////////////
+
+ Correct_Answer:       15451,  OUT_DATA:       15451
+////////////// Successful !! //////////////
+
+ Correct_Answer:         730,  OUT_DATA:         730
+////////////// Successful !! //////////////
+
+ Correct_Answer:        5077,  OUT_DATA:        5077
+////////////// Successful !! //////////////
+
+ Correct_Answer:       11622,  OUT_DATA:       11622
+////////////// Successful !! //////////////
+
+ Correct_Answer:       17241,  OUT_DATA:       17241
+////////////// Successful !! //////////////
+
+ Correct_Answer:       29275,  OUT_DATA:       29275
+////////////// Successful !! //////////////
+
+ Correct_Answer:       41580,  OUT_DATA:       41580
+////////////// Successful !! //////////////
+
+ Correct_Answer:       43245,  OUT_DATA:       43245
+////////////// Successful !! //////////////
+
+ Correct_Answer:       28310,  OUT_DATA:       28310
+////////////// Successful !! //////////////
+
+ Correct_Answer:       15960,  OUT_DATA:       15960
+////////////// Successful !! //////////////
+
+ Correct_Answer:       16374,  OUT_DATA:       16374
+////////////// Successful !! //////////////
+
+ Correct_Answer:       12971,  OUT_DATA:       12971
+////////////// Successful !! //////////////
+
+ Correct_Answer:        7243,  OUT_DATA:        7243
+////////////// Successful !! //////////////
+
+ Correct_Answer:        7850,  OUT_DATA:        7850
+////////////// Successful !! //////////////
+
+ Correct_Answer:       17016,  OUT_DATA:       17016
+////////////// Successful !! //////////////
+
+ Correct_Answer:       16058,  OUT_DATA:       16058
+////////////// Successful !! //////////////
+
+ Correct_Answer:       -8286,  OUT_DATA:       -8286
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -28749,  OUT_DATA:      -28749
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -10461,  OUT_DATA:      -10461
+////////////// Successful !! //////////////
+
+ Correct_Answer:       42791,  OUT_DATA:       42791
+////////////// Successful !! //////////////
+
+ Correct_Answer:       83055,  OUT_DATA:       83055
+////////////// Successful !! //////////////
+
+ Correct_Answer:       74118,  OUT_DATA:       74118
+////////////// Successful !! //////////////
+
+ Correct_Answer:       22552,  OUT_DATA:       22552
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -33273,  OUT_DATA:      -33273
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -56956,  OUT_DATA:      -56956
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -45108,  OUT_DATA:      -45108
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -16569,  OUT_DATA:      -16569
+////////////// Successful !! //////////////
+
+ Correct_Answer:        -387,  OUT_DATA:        -387
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -15795,  OUT_DATA:      -15795
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -58430,  OUT_DATA:      -58430
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -94417,  OUT_DATA:      -94417
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -87644,  OUT_DATA:      -87644
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -41498,  OUT_DATA:      -41498
+////////////// Successful !! //////////////
+
+ Correct_Answer:       10100,  OUT_DATA:       10100
+////////////// Successful !! //////////////
+
+ Correct_Answer:       24756,  OUT_DATA:       24756
+////////////// Successful !! //////////////
+
+ Correct_Answer:       -1210,  OUT_DATA:       -1210
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -32635,  OUT_DATA:      -32635
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -45461,  OUT_DATA:      -45461
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -37086,  OUT_DATA:      -37086
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -19172,  OUT_DATA:      -19172
+////////////// Successful !! //////////////
+
+ Correct_Answer:         716,  OUT_DATA:         716
+////////////// Successful !! //////////////
+
+ Correct_Answer:       27869,  OUT_DATA:       27869
+////////////// Successful !! //////////////
+
+ Correct_Answer:       43867,  OUT_DATA:       43867
+////////////// Successful !! //////////////
+
+ Correct_Answer:       13306,  OUT_DATA:       13306
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -60644,  OUT_DATA:      -60644
+////////////// Successful !! //////////////
+
+ Correct_Answer:     -121354,  OUT_DATA:     -121354
+////////////// Successful !! //////////////
+
+ Correct_Answer:     -106330,  OUT_DATA:     -106330
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -26124,  OUT_DATA:      -26124
+////////////// Successful !! //////////////
+
+ Correct_Answer:       37226,  OUT_DATA:       37226
+////////////// Successful !! //////////////
+
+ Correct_Answer:       25614,  OUT_DATA:       25614
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -31408,  OUT_DATA:      -31408
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -59933,  OUT_DATA:      -59933
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -32661,  OUT_DATA:      -32661
+////////////// Successful !! //////////////
+
+ Correct_Answer:         100,  OUT_DATA:         100
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -10792,  OUT_DATA:      -10792
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -51892,  OUT_DATA:      -51892
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -73525,  OUT_DATA:      -73525
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -58117,  OUT_DATA:      -58117
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -36432,  OUT_DATA:      -36432
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -32200,  OUT_DATA:      -32200
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -33846,  OUT_DATA:      -33846
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -18171,  OUT_DATA:      -18171
+////////////// Successful !! //////////////
+
+ Correct_Answer:       10639,  OUT_DATA:       10639
+////////////// Successful !! //////////////
+
+ Correct_Answer:       24349,  OUT_DATA:       24349
+////////////// Successful !! //////////////
+
+ Correct_Answer:       11658,  OUT_DATA:       11658
+////////////// Successful !! //////////////
+
+ Correct_Answer:       -5025,  OUT_DATA:       -5025
+////////////// Successful !! //////////////
+
+ Correct_Answer:       -5777,  OUT_DATA:       -5777
+////////////// Successful !! //////////////
+
+ Correct_Answer:       -2915,  OUT_DATA:       -2915
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -27190,  OUT_DATA:      -27190
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -77325,  OUT_DATA:      -77325
+////////////// Successful !! //////////////
+
+ Correct_Answer:     -110081,  OUT_DATA:     -110081
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -90865,  OUT_DATA:      -90865
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -41401,  OUT_DATA:      -41401
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -12303,  OUT_DATA:      -12303
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -25778,  OUT_DATA:      -25778
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -44422,  OUT_DATA:      -44422
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -22306,  OUT_DATA:      -22306
+////////////// Successful !! //////////////
+
+ Correct_Answer:       27262,  OUT_DATA:       27262
+////////////// Successful !! //////////////
+
+ Correct_Answer:       51039,  OUT_DATA:       51039
+////////////// Successful !! //////////////
+
+ Correct_Answer:       22879,  OUT_DATA:       22879
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -18043,  OUT_DATA:      -18043
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -24794,  OUT_DATA:      -24794
+////////////// Successful !! //////////////
+
+ Correct_Answer:       -4096,  OUT_DATA:       -4096
+////////////// Successful !! //////////////
+
+ Correct_Answer:         108,  OUT_DATA:         108
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -23715,  OUT_DATA:      -23715
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -37623,  OUT_DATA:      -37623
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -17815,  OUT_DATA:      -17815
+////////////// Successful !! //////////////
+
+ Correct_Answer:        7689,  OUT_DATA:        7689
+////////////// Successful !! //////////////
+
+ Correct_Answer:        1271,  OUT_DATA:        1271
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -29896,  OUT_DATA:      -29896
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -39060,  OUT_DATA:      -39060
+////////////// Successful !! //////////////
+
+ Correct_Answer:       -9214,  OUT_DATA:       -9214
+////////////// Successful !! //////////////
+
+ Correct_Answer:       26248,  OUT_DATA:       26248
+////////////// Successful !! //////////////
+
+ Correct_Answer:       39672,  OUT_DATA:       39672
+////////////// Successful !! //////////////
+
+ Correct_Answer:       43321,  OUT_DATA:       43321
+////////////// Successful !! //////////////
+
+ Correct_Answer:       59267,  OUT_DATA:       59267
+////////////// Successful !! //////////////
+
+ Correct_Answer:       69830,  OUT_DATA:       69830
+////////////// Successful !! //////////////
+
+ Correct_Answer:       42000,  OUT_DATA:       42000
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -17665,  OUT_DATA:      -17665
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -50291,  OUT_DATA:      -50291
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -15297,  OUT_DATA:      -15297
+////////////// Successful !! //////////////
+
+ Correct_Answer:       49939,  OUT_DATA:       49939
+////////////// Successful !! //////////////
+
+ Correct_Answer:       75923,  OUT_DATA:       75923
+////////////// Successful !! //////////////
+
+ Correct_Answer:       44249,  OUT_DATA:       44249
+////////////// Successful !! //////////////
+
+ Correct_Answer:       11401,  OUT_DATA:       11401
+////////////// Successful !! //////////////
+
+ Correct_Answer:       20427,  OUT_DATA:       20427
+////////////// Successful !! //////////////
+
+ Correct_Answer:       43203,  OUT_DATA:       43203
+////////////// Successful !! //////////////
+
+ Correct_Answer:       19818,  OUT_DATA:       19818
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -48921,  OUT_DATA:      -48921
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -89695,  OUT_DATA:      -89695
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -55038,  OUT_DATA:      -55038
+////////////// Successful !! //////////////
+
+ Correct_Answer:       23352,  OUT_DATA:       23352
+////////////// Successful !! //////////////
+
+ Correct_Answer:       72712,  OUT_DATA:       72712
+////////////// Successful !! //////////////
+
+ Correct_Answer:       61435,  OUT_DATA:       61435
+////////////// Successful !! //////////////
+
+ Correct_Answer:       22511,  OUT_DATA:       22511
+////////////// Successful !! //////////////
+
+ Correct_Answer:       -5460,  OUT_DATA:       -5460
+////////////// Successful !! //////////////
+
+ Correct_Answer:       -6405,  OUT_DATA:       -6405
+////////////// Successful !! //////////////
+
+ Correct_Answer:       15783,  OUT_DATA:       15783
+////////////// Successful !! //////////////
+
+ Correct_Answer:       49581,  OUT_DATA:       49581
+////////////// Successful !! //////////////
+
+ Correct_Answer:       69334,  OUT_DATA:       69334
+////////////// Successful !! //////////////
+
+ Correct_Answer:       44751,  OUT_DATA:       44751
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -16530,  OUT_DATA:      -16530
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -69413,  OUT_DATA:      -69413
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -68219,  OUT_DATA:      -68219
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -20603,  OUT_DATA:      -20603
+////////////// Successful !! //////////////
+
+ Correct_Answer:       32993,  OUT_DATA:       32993
+////////////// Successful !! //////////////
+
+ Correct_Answer:       65013,  OUT_DATA:       65013
+////////////// Successful !! //////////////
+
+ Correct_Answer:       68516,  OUT_DATA:       68516
+////////////// Successful !! //////////////
+
+ Correct_Answer:       40636,  OUT_DATA:       40636
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -19902,  OUT_DATA:      -19902
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -82816,  OUT_DATA:      -82816
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -97976,  OUT_DATA:      -97976
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -47851,  OUT_DATA:      -47851
+////////////// Successful !! //////////////
+
+ Correct_Answer:       24694,  OUT_DATA:       24694
+////////////// Successful !! //////////////
+
+ Correct_Answer:       59307,  OUT_DATA:       59307
+////////////// Successful !! //////////////
+
+ Correct_Answer:       42875,  OUT_DATA:       42875
+////////////// Successful !! //////////////
+
+ Correct_Answer:        7297,  OUT_DATA:        7297
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -15060,  OUT_DATA:      -15060
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -21443,  OUT_DATA:      -21443
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -19608,  OUT_DATA:      -19608
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -11737,  OUT_DATA:      -11737
+////////////// Successful !! //////////////
+
+ Correct_Answer:        2489,  OUT_DATA:        2489
+////////////// Successful !! //////////////
+
+ Correct_Answer:       12439,  OUT_DATA:       12439
+////////////// Successful !! //////////////
+
+ Correct_Answer:        6348,  OUT_DATA:        6348
+////////////// Successful !! //////////////
+
+ Correct_Answer:       -7623,  OUT_DATA:       -7623
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -10973,  OUT_DATA:      -10973
+////////////// Successful !! //////////////
+
+ Correct_Answer:        9643,  OUT_DATA:        9643
+////////////// Successful !! //////////////
+
+ Correct_Answer:       41188,  OUT_DATA:       41188
+////////////// Successful !! //////////////
+
+ Correct_Answer:       64912,  OUT_DATA:       64912
+////////////// Successful !! //////////////
+
+ Correct_Answer:       69727,  OUT_DATA:       69727
+////////////// Successful !! //////////////
+
+ Correct_Answer:       53381,  OUT_DATA:       53381
+////////////// Successful !! //////////////
+
+ Correct_Answer:       22685,  OUT_DATA:       22685
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -11485,  OUT_DATA:      -11485
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -32010,  OUT_DATA:      -32010
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -31746,  OUT_DATA:      -31746
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -22361,  OUT_DATA:      -22361
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -21966,  OUT_DATA:      -21966
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -25963,  OUT_DATA:      -25963
+////////////// Successful !! //////////////
+
+ Correct_Answer:       -9469,  OUT_DATA:       -9469
+////////////// Successful !! //////////////
+
+ Correct_Answer:       32678,  OUT_DATA:       32678
+////////////// Successful !! //////////////
+
+ Correct_Answer:       69444,  OUT_DATA:       69444
+////////////// Successful !! //////////////
+
+ Correct_Answer:       57425,  OUT_DATA:       57425
+////////////// Successful !! //////////////
+
+ Correct_Answer:        3548,  OUT_DATA:        3548
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -36912,  OUT_DATA:      -36912
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -30514,  OUT_DATA:      -30514
+////////////// Successful !! //////////////
+
+ Correct_Answer:        1289,  OUT_DATA:        1289
+////////////// Successful !! //////////////
+
+ Correct_Answer:        3134,  OUT_DATA:        3134
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -34309,  OUT_DATA:      -34309
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -62574,  OUT_DATA:      -62574
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -42649,  OUT_DATA:      -42649
+////////////// Successful !! //////////////
+
+ Correct_Answer:        5032,  OUT_DATA:        5032
+////////////// Successful !! //////////////
+
+ Correct_Answer:       28546,  OUT_DATA:       28546
+////////////// Successful !! //////////////
+
+ Correct_Answer:       17151,  OUT_DATA:       17151
+////////////// Successful !! //////////////
+
+ Correct_Answer:       -4863,  OUT_DATA:       -4863
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -23403,  OUT_DATA:      -23403
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -47940,  OUT_DATA:      -47940
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -82240,  OUT_DATA:      -82240
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -91440,  OUT_DATA:      -91440
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -52822,  OUT_DATA:      -52822
+////////////// Successful !! //////////////
+
+ Correct_Answer:       -1328,  OUT_DATA:       -1328
+////////////// Successful !! //////////////
+
+ Correct_Answer:       19461,  OUT_DATA:       19461
+////////////// Successful !! //////////////
+
+ Correct_Answer:       11006,  OUT_DATA:       11006
+////////////// Successful !! //////////////
+
+ Correct_Answer:       18112,  OUT_DATA:       18112
+////////////// Successful !! //////////////
+
+ Correct_Answer:       52997,  OUT_DATA:       52997
+////////////// Successful !! //////////////
+
+ Correct_Answer:       67908,  OUT_DATA:       67908
+////////////// Successful !! //////////////
+
+ Correct_Answer:       29864,  OUT_DATA:       29864
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -27003,  OUT_DATA:      -27003
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -39362,  OUT_DATA:      -39362
+////////////// Successful !! //////////////
+
+ Correct_Answer:       -3335,  OUT_DATA:       -3335
+////////////// Successful !! //////////////
+
+ Correct_Answer:       25847,  OUT_DATA:       25847
+////////////// Successful !! //////////////
+
+ Correct_Answer:       10482,  OUT_DATA:       10482
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -22864,  OUT_DATA:      -22864
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -21457,  OUT_DATA:      -21457
+////////////// Successful !! //////////////
+
+ Correct_Answer:       16714,  OUT_DATA:       16714
+////////////// Successful !! //////////////
+
+ Correct_Answer:       39385,  OUT_DATA:       39385
+////////////// Successful !! //////////////
+
+ Correct_Answer:        4235,  OUT_DATA:        4235
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -65626,  OUT_DATA:      -65626
+////////////// Successful !! //////////////
+
+ Correct_Answer:     -105413,  OUT_DATA:     -105413
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -80175,  OUT_DATA:      -80175
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -19033,  OUT_DATA:      -19033
+////////////// Successful !! //////////////
+
+ Correct_Answer:       13476,  OUT_DATA:       13476
+////////////// Successful !! //////////////
+
+ Correct_Answer:       -7342,  OUT_DATA:       -7342
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -48092,  OUT_DATA:      -48092
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -61456,  OUT_DATA:      -61456
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -36477,  OUT_DATA:      -36477
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -15727,  OUT_DATA:      -15727
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -34296,  OUT_DATA:      -34296
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -77796,  OUT_DATA:      -77796
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -98935,  OUT_DATA:      -98935
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -69210,  OUT_DATA:      -69210
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -12400,  OUT_DATA:      -12400
+////////////// Successful !! //////////////
+
+ Correct_Answer:       28451,  OUT_DATA:       28451
+////////////// Successful !! //////////////
+
+ Correct_Answer:       33348,  OUT_DATA:       33348
+////////////// Successful !! //////////////
+
+ Correct_Answer:       24466,  OUT_DATA:       24466
+////////////// Successful !! //////////////
+
+ Correct_Answer:       30489,  OUT_DATA:       30489
+////////////// Successful !! //////////////
+
+ Correct_Answer:       40805,  OUT_DATA:       40805
+////////////// Successful !! //////////////
+
+ Correct_Answer:       29806,  OUT_DATA:       29806
+////////////// Successful !! //////////////
+
+ Correct_Answer:       -1227,  OUT_DATA:       -1227
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -28017,  OUT_DATA:      -28017
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -26579,  OUT_DATA:      -26579
+////////////// Successful !! //////////////
+
+ Correct_Answer:       -4853,  OUT_DATA:       -4853
+////////////// Successful !! //////////////
+
+ Correct_Answer:       10090,  OUT_DATA:       10090
+////////////// Successful !! //////////////
+
+ Correct_Answer:       13736,  OUT_DATA:       13736
+////////////// Successful !! //////////////
+
+ Correct_Answer:        6544,  OUT_DATA:        6544
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -13199,  OUT_DATA:      -13199
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -36546,  OUT_DATA:      -36546
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -51722,  OUT_DATA:      -51722
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -49563,  OUT_DATA:      -49563
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -40348,  OUT_DATA:      -40348
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -40438,  OUT_DATA:      -40438
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -38336,  OUT_DATA:      -38336
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -17553,  OUT_DATA:      -17553
+////////////// Successful !! //////////////
+
+ Correct_Answer:        6216,  OUT_DATA:        6216
+////////////// Successful !! //////////////
+
+ Correct_Answer:       -3204,  OUT_DATA:       -3204
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -47603,  OUT_DATA:      -47603
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -77360,  OUT_DATA:      -77360
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -52602,  OUT_DATA:      -52602
+////////////// Successful !! //////////////
+
+ Correct_Answer:        2954,  OUT_DATA:        2954
+////////////// Successful !! //////////////
+
+ Correct_Answer:       26214,  OUT_DATA:       26214
+////////////// Successful !! //////////////
+
+ Correct_Answer:       -9700,  OUT_DATA:       -9700
+////////////// Successful !! //////////////
+
+ Correct_Answer:      -63970,  OUT_DATA:      -63970
+----------------------------------------------------------------------------------------------------------------------
+                                                  Congratulations!                                                    
+                                           You have passed all patterns!                                              
+                                                                                                                      
+                                        Your execution cycles   =   999 cycles                                          
+                                        Your clock period       = 10.0 ns                                             
+----------------------------------------------------------------------------------------------------------------------
+$finish called from file "FIR_syn_tb.v", line 130.
+$finish at simulation time             10020000
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 10020000 ps
+CPU Time:      1.430 seconds;       Data structure size:   1.0Mb
+Thu Jan  4 15:01:04 2024
+CPU time: .846 seconds to compile + .397 seconds to elab + .655 seconds to link + 1.481 seconds in simulation

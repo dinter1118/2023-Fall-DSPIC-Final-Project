@@ -1,0 +1,236 @@
+ 
+****************************************
+Report : area
+Design : FIR
+Version: R-2020.09-SP5
+Date   : Wed Jan  3 18:43:38 2024
+****************************************
+
+Library(s) Used:
+
+    slow (File: /home/m110/m110061576/process/CBDK_TSMC90GUTM_Arm_f1.0/orig_lib/aci/sc-x/synopsys/slow.db)
+
+Number of ports:                           36
+Number of nets:                          3203
+Number of cells:                         2557
+Number of combinational cells:           1850
+Number of sequential cells:               707
+Number of macros/black boxes:               0
+Number of buf/inv:                        222
+Number of references:                      31
+
+Combinational area:              15406.775757
+Buf/Inv area:                      469.929615
+Noncombinational area:            9478.324607
+Macro/Black Box area:                0.000000
+Net Interconnect area:      undefined  (No wire load specified)
+
+Total cell area:                 24885.100363
+Total area:                 undefined
+
+Hierarchical area distribution
+------------------------------
+
+                                  Global cell area            Local cell area
+                                  -------------------  ----------------------------- 
+Hierarchical cell                 Absolute    Percent  Combi-      Noncombi-  Black-
+                                  Total       Total    national    national   boxes   Design
+--------------------------------  ----------  -------  ----------  ---------  ------  ---------
+FIR                               24885.1004    100.0  15406.7758  9478.3246  0.0000  FIR
+--------------------------------  ----------  -------  ----------  ---------  ------  ---------
+Total                                                  15406.7758  9478.3246  0.0000
+
+1
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -input_pins
+        -max_paths 1
+Design : FIR
+Version: R-2020.09-SP5
+Date   : Wed Jan  3 18:43:38 2024
+****************************************
+
+Operating Conditions: slow   Library: slow
+Wire Load Model Mode: top
+
+  Startpoint: infix[0] (input port clocked by clk)
+  Endpoint: mul_reg_13__22_
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock clk (rise edge)                    0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  input external delay                     0.26       0.26 f
+  infix[0] (in)                            0.06       0.32 f
+  U1686/A (INVX2)                          0.00       0.32 f
+  U1686/Y (INVX2)                          0.24       0.56 r
+  U803/B (NAND2XL)                         0.00       0.56 r
+  U803/Y (NAND2XL)                         0.14       0.70 f
+  U779/A (NOR2XL)                          0.00       0.70 f
+  U779/Y (NOR2XL)                          0.16       0.87 r
+  U1738/B0 (AOI22XL)                       0.00       0.87 r
+  U1738/Y (AOI22XL)                        0.18       1.05 f
+  U1739/A0N (AOI2BB2XL)                    0.00       1.05 f
+  U1739/Y (AOI2BB2XL)                      0.21       1.26 f
+  intadd_5_U20/B (ADDFXL)                  0.00       1.26 f
+  intadd_5_U20/CO (ADDFXL)                 0.31       1.58 f
+  intadd_5_U19/CI (ADDFXL)                 0.00       1.58 f
+  intadd_5_U19/CO (ADDFXL)                 0.18       1.76 f
+  intadd_5_U18/CI (ADDFXL)                 0.00       1.76 f
+  intadd_5_U18/CO (ADDFXL)                 0.18       1.94 f
+  intadd_5_U17/CI (ADDFXL)                 0.00       1.94 f
+  intadd_5_U17/CO (ADDFXL)                 0.18       2.12 f
+  intadd_5_U16/CI (ADDFXL)                 0.00       2.12 f
+  intadd_5_U16/CO (ADDFXL)                 0.18       2.30 f
+  intadd_5_U15/CI (ADDFXL)                 0.00       2.30 f
+  intadd_5_U15/CO (ADDFXL)                 0.18       2.49 f
+  intadd_5_U14/CI (ADDFXL)                 0.00       2.49 f
+  intadd_5_U14/CO (ADDFXL)                 0.18       2.67 f
+  intadd_5_U13/CI (ADDFXL)                 0.00       2.67 f
+  intadd_5_U13/CO (ADDFXL)                 0.18       2.85 f
+  intadd_5_U12/CI (ADDFXL)                 0.00       2.85 f
+  intadd_5_U12/CO (ADDFXL)                 0.18       3.03 f
+  intadd_5_U11/CI (ADDFXL)                 0.00       3.03 f
+  intadd_5_U11/CO (ADDFXL)                 0.18       3.21 f
+  intadd_5_U10/CI (ADDFXL)                 0.00       3.21 f
+  intadd_5_U10/CO (ADDFXL)                 0.18       3.39 f
+  intadd_5_U9/CI (ADDFXL)                  0.00       3.39 f
+  intadd_5_U9/CO (ADDFXL)                  0.18       3.58 f
+  intadd_5_U8/CI (ADDFXL)                  0.00       3.58 f
+  intadd_5_U8/CO (ADDFXL)                  0.18       3.76 f
+  intadd_5_U7/CI (ADDFXL)                  0.00       3.76 f
+  intadd_5_U7/CO (ADDFXL)                  0.18       3.94 f
+  intadd_5_U6/CI (ADDFXL)                  0.00       3.94 f
+  intadd_5_U6/CO (ADDFXL)                  0.18       4.12 f
+  intadd_5_U5/CI (ADDFXL)                  0.00       4.12 f
+  intadd_5_U5/CO (ADDFXL)                  0.18       4.30 f
+  intadd_5_U4/CI (ADDFXL)                  0.00       4.30 f
+  intadd_5_U4/CO (ADDFXL)                  0.18       4.48 f
+  intadd_5_U3/CI (ADDFXL)                  0.00       4.48 f
+  intadd_5_U3/CO (ADDFXL)                  0.18       4.66 f
+  intadd_5_U2/CI (ADDFXL)                  0.00       4.66 f
+  intadd_5_U2/CO (ADDFXL)                  0.17       4.83 f
+  U1383/B (XNOR2XL)                        0.00       4.83 f
+  U1383/Y (XNOR2XL)                        0.11       4.94 f
+  U1382/AN (NOR2BXL)                       0.00       4.94 f
+  U1382/Y (NOR2BXL)                        0.10       5.04 f
+  mul_reg_13__22_/D (DFFQXL)               0.00       5.04 f
+  data arrival time                                   5.04
+
+  clock clk (rise edge)                    5.16       5.16
+  clock network delay (ideal)              0.00       5.16
+  mul_reg_13__22_/CK (DFFQXL)              0.00       5.16 r
+  library setup time                      -0.11       5.05
+  data required time                                  5.05
+  -----------------------------------------------------------
+  data required time                                  5.05
+  data arrival time                                  -5.04
+  -----------------------------------------------------------
+  slack (MET)                                         0.00
+
+
+1
+ 
+****************************************
+Report : timing
+        -path full
+        -delay min
+        -input_pins
+        -max_paths 1
+Design : FIR
+Version: R-2020.09-SP5
+Date   : Wed Jan  3 18:43:38 2024
+****************************************
+
+Operating Conditions: slow   Library: slow
+Wire Load Model Mode: top
+
+  Startpoint: mul_reg_2__0_
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: mul_reg_1__0_
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: min
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock clk (rise edge)                    0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  mul_reg_2__0_/CK (DFFQXL)                0.00       0.00 r
+  mul_reg_2__0_/Q (DFFQXL)                 0.17       0.17 r
+  U1661/AN (NOR2BXL)                       0.00       0.17 r
+  U1661/Y (NOR2BXL)                        0.08       0.24 r
+  mul_reg_1__0_/D (DFFQXL)                 0.00       0.24 r
+  data arrival time                                   0.24
+
+  clock clk (rise edge)                    0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  mul_reg_1__0_/CK (DFFQXL)                0.00       0.00 r
+  library hold time                       -0.05      -0.05
+  data required time                                 -0.05
+  -----------------------------------------------------------
+  data required time                                 -0.05
+  data arrival time                                  -0.24
+  -----------------------------------------------------------
+  slack (MET)                                         0.29
+
+
+1
+Information: Propagating switching activity (low effort zero delay simulation). (PWR-6)
+Warning: Design has unannotated primary inputs. (PWR-414)
+Warning: Design has unannotated sequential cell outputs. (PWR-415)
+ 
+****************************************
+Report : power
+        -analysis_effort low
+Design : FIR
+Version: R-2020.09-SP5
+Date   : Wed Jan  3 18:43:39 2024
+****************************************
+
+
+Library(s) Used:
+
+    slow (File: /home/m110/m110061576/process/CBDK_TSMC90GUTM_Arm_f1.0/orig_lib/aci/sc-x/synopsys/slow.db)
+
+
+Operating Conditions: slow   Library: slow
+Wire Load Model Mode: top
+
+
+Global Operating Voltage = 0.9  
+Power-specific unit information :
+    Voltage Units = 1V
+    Capacitance Units = 1.000000pf
+    Time Units = 1ns
+    Dynamic Power Units = 1mW    (derived from V,C,T units)
+    Leakage Power Units = 1pW
+
+
+  Cell Internal Power  =   2.1000 mW   (94%)
+  Net Switching Power  = 123.8863 uW    (6%)
+                         ---------
+Total Dynamic Power    =   2.2239 mW  (100%)
+
+Cell Leakage Power     =  92.3586 uW
+
+
+                 Internal         Switching           Leakage            Total
+Power Group      Power            Power               Power              Power   (   %    )  Attrs
+--------------------------------------------------------------------------------------------------
+io_pad             0.0000            0.0000            0.0000            0.0000  (   0.00%)
+memory             0.0000            0.0000            0.0000            0.0000  (   0.00%)
+black_box          0.0000            0.0000            0.0000            0.0000  (   0.00%)
+clock_network      0.0000            0.0000            0.0000            0.0000  (   0.00%)
+register           1.6580        2.7723e-02        2.5625e+07            1.7113  (  73.88%)
+sequential         0.0000            0.0000            0.0000            0.0000  (   0.00%)
+combinational      0.4420        9.6163e-02        6.6734e+07            0.6049  (  26.12%)
+--------------------------------------------------------------------------------------------------
+Total              2.1000 mW         0.1239 mW     9.2359e+07 pW         2.3162 mW
+1
